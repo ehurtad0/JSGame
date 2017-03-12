@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by Jorge Mota
  * on 3/11/17.
  */
-@XmlRootElement(name = "BeanExample")
+@XmlRootElement(name = "Bean Demo")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class BeanExample {
