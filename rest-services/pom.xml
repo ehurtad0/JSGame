@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.joyscrum</groupId>
     <artifactId>rest-services</artifactId>
@@ -7,19 +8,12 @@
     <packaging>war</packaging>
     <name>JoyScrum RestServices API</name>
     <url>http://localhost:9990/rest-services</url>
-
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <!-- JBoss dependency versions -->
-
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
-
         <version.jboss.spec.javaee.7.0>1.0.3.Final</version.jboss.spec.javaee.7.0>
-
         <version.war.plugin>3.0.0</version.war.plugin>
-        <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
         <server.deployment.url>127.0.0.1</server.deployment.url>
@@ -27,7 +21,6 @@
         <server.deployment.user></server.deployment.user>
         <server.deployment.password></server.deployment.password>
     </properties>
-
     <dependencyManagement>
         <dependencies>
             <!-- Define the version of the JBoss Java EE APIs we want to import.
@@ -82,15 +75,14 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.wildfly.maven.plugin}</version>
                 <configuration>
-                  <hostname>${server.deployment.url}</hostname>
-                  <port>${server.deployment.port}</port>
-                  <username>${server.deployment.user}</username>
-                  <password>${server.deployment.password}</password>
+                    <hostname>${server.deployment.url}</hostname>
+                    <port>${server.deployment.port}</port>
+                    <username>${server.deployment.user}</username>
+                    <password>${server.deployment.password}</password>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
