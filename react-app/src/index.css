@@ -1,0 +1,150 @@
+html,body,.mainWrapper,#root{
+	height: 100%;
+	width: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  /*background-color: #f2f2f2;*/
+  color: #808080;
+}
+
+h4{
+	font-size: 22pt !important;
+}
+
+/*Generic*/
+#registrationWrapper > .logo{
+	border-bottom: 1px solid #E6E6E6;
+}
+
+#registrationWrapper > .logo > img {
+	width: 50%;
+	margin: 15px 25%;
+	margin-top: 0px;	
+}
+
+.full-width {
+	width: 100%;
+}
+
+
+/*Generic*/
+
+/*Materialize Customization*/
+.modal-footer{
+	text-align: center !important;
+}
+.no-float{
+	float: none !important;
+}
+.bluecustom, .bluecustom:hover{
+	background-color: #0092EE !important;
+	box-shadow: none !important;
+	text-transform: capitalize !important;
+	min-width: 150px;
+	color: #FFF;
+}
+
+.btn-radius{
+	border-radius: 30px !important;
+}
+
+.capitalize{
+	text-transform: capitalize !important;
+}
+
+.skip-btn, .skip-btn:hover{
+	background-color: #FFF !important;
+	box-shadow: none !important;
+	text-transform: capitalize !important;
+	min-width: 150px;
+	border:1px solid #0092EE !important;
+	color: #0092EE !important;
+}
+
+.paginatorWrapper{
+	margin-top: 40px;
+}
+
+.paginatorWrapper > .pagination > li > a{
+	color: transparent !important;
+}
+
+.paginatorWrapper > .pagination > li{
+	background-color: #0092EE;
+	width: 15px;
+	height: 15px;
+	border-radius: 7.5px;
+	margin: 0 15px;
+}
+
+.paginatorWrapper > .pagination > li.active{
+	background-color: #0092EE !important;
+}
+
+.paginatorWrapper > .pagination > li.active ~ li{
+	background-color: #808080 !important;
+}
+.paginatorWrapper .material-icons, .paginatorWrapper > .pagination > li:first-child, .paginatorWrapper > .pagination > li:last-child{
+	display: none !important;
+}
+
+.customInput {
+	width: 28% !important;
+	margin: 0 2% 0 0 !important; 
+	border: 1px solid #9e9e9e !important;
+	text-align: center !important; 
+}
+
+.codeWrapper > div {
+	float: left;
+}
+
+.codeWrapper > .inputWrapper{
+	width: 45% !important;
+}
+
+.codeWrapper > .separatorWrapper{
+	width: 10% !important;
+}
+
+.stepThreeFormWrapper > div > input,
+.stepFiveFormWrapper > div > input{
+	margin-bottom: 0px !important;
+}
+
+.stepThreeFormWrapper > div{
+	margin-top: 10px !important;
+}
+
+.stepFiveFormWrapper > div{
+	margin-top: 20px !important;
+}
+
+.stepThreeFormWrapper > div:last-child,
+.stepFiveFormWrapper > div:last-child{
+	margin-bottom: 20px !important;
+}
+
+.stepFiveFormWrapper > div > label {
+	font-size: 12pt !important;
+}
+
+.modal-overlay{
+	background: #182033 !important;
+}
+
+.paginatorWrapper{
+	margin-bottom: 0px !important; 
+}
+
+.btn-google{
+	background-color: #db3236 !important;
+}
+
+.btn-trello{
+	background-color: #0079bf !important;
+}
+/*Materialize Customization*/
