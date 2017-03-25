@@ -12,7 +12,7 @@ import org.mongodb.morphia.annotations.Id;
 public class Mission {
     @Id
     private ObjectId id;
-    private String tipomoision;
+    private String tipomision;
     private String nombremision;
     private String rol;
     private int valor;
@@ -26,12 +26,12 @@ public class Mission {
         this.id = id;
     }
 
-    public String getTipomoision() {
-        return tipomoision;
+    public String getTipomision() {
+        return tipomision;
     }
 
-    public void setTipomoision(String tipomoision) {
-        this.tipomoision = tipomoision;
+    public void setTipomision(String tipomision) {
+        this.tipomision = tipomision;
     }
 
     public String getNombremision() {
