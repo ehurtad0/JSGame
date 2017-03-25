@@ -14,7 +14,7 @@ public class Mission {
     private ObjectId id;
     private String tipomision;
     private String nombremision;
-    private String rol;
+    private String Rol;
     private int valor;
     private int posicion;
 
@@ -43,11 +43,11 @@ public class Mission {
     }
 
     public String getRol() {
-        return rol;
+        return Rol;
     }
 
     public void setRol(String rol) {
-        this.rol = rol;
+        this.Rol = rol;
     }
 
     public int getValor() {
