@@ -23,19 +23,23 @@ public class ApplicationsManager implements IApplicationsManager {
 @Inject
 ConnectionDB connection;
   //@PersistenceContext(unitName = "Gamification")
-  private EntityManager em;
+ // private EntityManager em;
 
   @Override
   public String create(Application applicationData) {
     Application newApplication = new Application(applicationData);
-    em.persist(newApplication);
+    //em.persist(newApplication);
+    connection.getDataStore().save(newApplication);
     return newApplication.getId().toHexString();
   }
 
   @Override
   public void update(Application newState) throws EntityNotFoundException {
-    findById(newState.getId().toHexString());
-    em.merge(newState);
+    Application app =findById(newState.getId().toHexString());
+    app.setName(newState.getName());
+    Datastore datastore= connection.getDataStore();
+    datastore.save(newState);
+   // em.merge(newState);
   }
 
   @Override

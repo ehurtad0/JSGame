@@ -3,3 +3,9 @@ target/**
 target
 .gitignore
 installer-ear/ear/src/main/application/META-INF/temp/**
+**/*.iml
+.idea
+**/.idea
+.idea/**
+**/deployRemote.sh
+deployRemote.sh
