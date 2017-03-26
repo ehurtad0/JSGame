@@ -7,8 +7,10 @@ import StepFourForm from './register/StepFourForm';
 import StepFourInvitationsForm from './register/StepFourFormInvitations';
 import StepFiveForm from './register/StepFiveForm';
 import { BrowserRouter as Router, Route, Match } from 'react-router-dom';
+import '../materialize/css/register.css';
 const Register = ({ match }) => (
 	<Router>
+	<div className="register">
 		<div className='container mainWrapper valign-wrapper'>
 			<div className="valign center full-width">
 				<div className="row">
@@ -26,6 +28,7 @@ const Register = ({ match }) => (
 				</div>
 			</div>
 		</div>
+	</div>
 	</Router>
 )
 
