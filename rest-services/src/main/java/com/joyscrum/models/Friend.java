@@ -1,7 +1,8 @@
 package com.joyscrum.models;
 
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.*;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
 /**
  * Created by Jorge Mota

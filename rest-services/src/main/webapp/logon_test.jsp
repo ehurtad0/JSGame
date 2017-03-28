@@ -12,12 +12,11 @@
         function start() {
             gapi.load('auth2', function () {
                 auth2 = gapi.auth2.init({
-                    client_id: '<%=GetSystemConfiguration.getValue().getGoogleClientId()%>',
+                    client_id: '773332083832-eh42icaooprq2ojlr5jeupf8lkskoaub.apps.googleusercontent.com',
                     scope: 'profile'
                 });
             });
         }
-        alert("<%=GetSystemConfiguration.getValue().getEnvironment()%>");
     </script>
 </head>
 <body>

@@ -15,6 +15,7 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 
 import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.NotAllowedException;
 import javax.ws.rs.NotAuthorizedException;
@@ -29,7 +30,7 @@ import java.util.List;
  * Created by Jorge Mota
  * on 3/24/17.
  */
-@Singleton
+@Stateless
 public class PlayerImpl {
     @Inject
     ConnectionDB connection;

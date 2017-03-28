@@ -2,7 +2,7 @@ package com.joyscrum;
 
 import com.joyscrum.models.SystemConfiguration;
 
-import javax.inject.Singleton;
+import javax.enterprise.inject.Model;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,10 +12,9 @@ import java.util.Properties;
  * Created by Jorge Mota
  * on 3/27/17.
  */
-@Singleton
 
 public class GetSystemConfiguration {
-    static SystemConfiguration conf;
+    static SystemConfiguration conf=null;
 
     static {
         try {

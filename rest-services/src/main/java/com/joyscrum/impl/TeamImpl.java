@@ -4,8 +4,8 @@ import com.joyscrum.ConnectionDB;
 import com.joyscrum.models.Team;
 import org.mongodb.morphia.Datastore;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -13,7 +13,8 @@ import java.util.List;
  * Created by Jorge Mota
  * on 3/27/17.
  */
-@Singleton
+@Stateless
+
 public class TeamImpl {
     @Inject
     ConnectionDB connection;
