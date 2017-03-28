@@ -5,6 +5,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>JoyScrum Project</name>
+    <description>JoyScrum API project</description>
     <modules>
         <module>db-utils</module>
         <module>gamification-lib</module>
