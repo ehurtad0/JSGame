@@ -11,7 +11,7 @@ import org.mongodb.morphia.annotations.Transient;
  * on 3/24/17.
  */
 @Entity("Jugador")
-public class Player {
+public class Player extends ModelBase {
     @Id
     private ObjectId id;
 
@@ -23,7 +23,7 @@ public class Player {
     private String avatar;
     private int edad;
     @Reference
-    private RolPlayer rol;
+    private Rol rol;
     private String nombre;
     private String genero;
     private long puntos;
@@ -37,8 +37,6 @@ public class Player {
     private String origin;
     @Reference
     private Team equipo;
-    @Transient
-    private String pk;
 
 
     public ObjectId getId() {
@@ -97,11 +95,11 @@ public class Player {
         this.edad = edad;
     }
 
-    public RolPlayer getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(RolPlayer rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
@@ -201,7 +199,5 @@ public class Player {
         this.equipo = equipo;
     }
 
-    public String getPk(){
-        return id.toHexString();
-    }
+
 }

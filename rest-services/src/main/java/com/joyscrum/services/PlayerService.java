@@ -50,5 +50,17 @@ public class PlayerService {
             return Response.status(406).build();
         }
     }
+    @POST
+    @Path("/setRol/{playerId}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response setRol(@PathParam("playerId") String userId, ToID rolId) {
+        if (service.updateRol(new ObjectId(userId),new ObjectId(rolId.getHexString()))){
+            return Response.ok().build();
+
+        }else{
+            return Response.status(406).build();
+        }
+    }
 
 }

@@ -3,18 +3,16 @@ package com.joyscrum.models;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Transient;
 
 /**
  * Created by Jorge Mota
  * on 3/27/17.
  */
 @Entity("Rol")
-public class Rol {
+public class Rol extends ModelBase {
     @Id
     private ObjectId id;
-    @Transient
-    private String pk;
+
     private int index;
     private String guid;
     private String nombreRol;
@@ -52,7 +50,5 @@ public class Rol {
         this.nombreRol = nombreRol;
     }
 
-    public String getPk() {
-        return id.toHexString();
-    }
+
 }

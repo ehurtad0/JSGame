@@ -10,11 +10,11 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.joyscrum.ConnectionDB;
 import com.joyscrum.GetSystemConfiguration;
 import com.joyscrum.models.Player;
+import com.joyscrum.models.Rol;
 import com.joyscrum.models.Team;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 
-import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.NotAllowedException;
@@ -117,6 +117,21 @@ public class PlayerImpl {
             return false;
         }
         player.setEquipo(team);
+        store.save(player);
+        return true;
+    }
+
+    public boolean updateRol(ObjectId userId, ObjectId rolId) {
+        Datastore store = connection.getDataStore();
+        Rol rol = store.createQuery(Rol.class).field("id").equal(rolId).get();
+        if (rol == null) {
+            return false;
+        }
+        Player player = store.createQuery(Player.class).field("id").equal(userId).get();
+        if (player == null) {
+            return false;
+        }
+        player.setRol(rol);
         store.save(player);
         return true;
     }

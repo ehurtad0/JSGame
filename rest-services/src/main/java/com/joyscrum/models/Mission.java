@@ -9,7 +9,7 @@ import org.mongodb.morphia.annotations.Id;
  * on 3/24/17.
  */
 @Entity
-public class Mission {
+public class Mission extends ModelBase {
     @Id
     private ObjectId id;
     private String tipomision;

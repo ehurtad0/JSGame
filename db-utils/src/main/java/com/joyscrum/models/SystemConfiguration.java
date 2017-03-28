@@ -10,6 +10,7 @@ public class SystemConfiguration {
     private String environment;
     private String googleClientId;
     private String redirectURI;
+    private boolean allowPlainRequest;
 
     public void setEnvironment(String environment) {
         this.environment = environment;
@@ -33,5 +34,13 @@ public class SystemConfiguration {
 
     public String getRedirectURI() {
         return redirectURI;
+    }
+
+    public void setAllowPlainRequest(boolean allowPlainRequest) {
+        this.allowPlainRequest = allowPlainRequest;
+    }
+
+    public boolean isAllowPlainRequest() {
+        return allowPlainRequest;
     }
 }

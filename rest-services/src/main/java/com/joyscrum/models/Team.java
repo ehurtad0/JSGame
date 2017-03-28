@@ -3,7 +3,6 @@ package com.joyscrum.models;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Transient;
 
 
 /**
@@ -11,11 +10,10 @@ import org.mongodb.morphia.annotations.Transient;
  * on 3/27/17.
  */
 @Entity("Equipo")
-public class Team {
+public class Team extends ModelBase {
     @Id
     private ObjectId id;
-@Transient
-private String pk;
+
     private int index;
     private String guid;
     private String nombreEquipo;
@@ -78,7 +76,5 @@ private String pk;
     public void setProgresoEquipo(double progresoEquipo) {
         this.progresoEquipo = progresoEquipo;
     }
-    public String getPk(){
-        return id.toHexString();
-    }
+
 }

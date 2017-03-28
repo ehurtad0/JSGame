@@ -6,6 +6,7 @@ package com.joyscrum.filters;
  * on 3/28/17.
  */
 
+import com.joyscrum.GetSystemConfiguration;
 import org.jose4j.jwk.RsaJsonWebKey;
 import org.jose4j.jwt.JwtClaims;
 import org.jose4j.jwt.consumer.InvalidJwtException;
@@ -29,7 +30,7 @@ public class JWTAuthFilter implements ContainerRequestFilter {
         System.out.println("request filter invoked...");
 
         String authHeaderVal = requestContext.getHeaderString("Authorization");
-        if (requestContext.getUriInfo().getPath().equals("/AUTH")) {
+        if (requestContext.getUriInfo().getPath().equals("/AUTH")|| GetSystemConfiguration.getValue().isAllowPlainRequest()) {
 
         } else {
             //consume JWT i.e. execute signature validation

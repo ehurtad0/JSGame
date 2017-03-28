@@ -13,7 +13,7 @@ import java.util.Properties;
  */
 
 public class GetSystemConfiguration {
-    static SystemConfiguration conf=null;
+    static SystemConfiguration conf = null;
 
     static {
         try {
@@ -24,11 +24,24 @@ public class GetSystemConfiguration {
             conf.setEnvironment(props.getProperty("environment", "localhost"));
             conf.setGoogleClientId(props.getProperty("googleClientId", "773332083832-eh42icaooprq2ojlr5jeupf8lkskoaub.apps.googleusercontent.com"));
             conf.setRedirectURI(props.getProperty("redirectURI", "http://localhost:8080"));
+            boolean allow=false;
+            String tmp =(String)props.get("plainRequest");
+            if (tmp==null){
+
+            }else{
+                allow =tmp.equals("yes");
+            }
+            conf.setAllowPlainRequest(allow);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String... args) {
+        boolean x = conf.isAllowPlainRequest();
+        System.out.println(conf.isAllowPlainRequest());
     }
 
     public SystemConfiguration get() {
@@ -38,5 +51,7 @@ public class GetSystemConfiguration {
     public static SystemConfiguration getValue() {
         return conf;
     }
+
+
 
 }

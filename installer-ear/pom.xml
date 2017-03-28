@@ -1,125 +1,142 @@
 <project>
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>com.joyscrum</groupId>
-   <version>1.0-SNAPSHOT</version>
-   <artifactId>installer-ear</artifactId>
-   <packaging>pom</packaging>
-   <name>Instaler Project</name>
-   <modules>
-      <!--module>projects</module-->
-      <!--module>primary-source</module-->
-      <!--module>servlets</module-->
-      <!--module>ejbs</module-->
-      <module>ear</module>
-      <!--module>site</module-->
-   </modules>
-   <build>
-      <pluginManagement>
-         <plugins>
-            <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-site-plugin</artifactId>
-               <configuration>
-                  <unzipCommand>/usr/bin/unzip -o > err.txt</unzipCommand>
-               </configuration>
-            </plugin>
-            <plugin>
-    <artifactId>maven-ear-plugin</artifactId>
-    <version>2.8</version>
-    <configuration>
-      <defaultLibBundleDir>lib/</defaultLibBundleDir>
-          <skinnyWars>true</skinnyWars>
-          <finalName>joyscrum-${version}</finalName>
-        <generatedDescriptorLocation>${basedir}/src/main/application/META-INF</generatedDescriptorLocation>
-        <modules>
-            <webModule>
-                <groupId>com.joyscrum</groupId>
-                <artifactId>gamification-api</artifactId>
-                <uri>gamification-api.war</uri>
-                <bundleFileName>gamification.war</bundleFileName>
-                <contextRoot>/gamification</contextRoot>
-            </webModule>
-            <webModule>
-                <groupId>com.joyscrum</groupId>
-                <artifactId>rest-services</artifactId>
-                <uri>restservices.war</uri>
-                <bundleFileName>restservices.war</bundleFileName>
-                <contextRoot>/rest</contextRoot>
-            </webModule>
-        </modules>
-    </configuration>
-</plugin>
-         </plugins>
-      </pluginManagement>
-   </build>
-   <dependencyManagement>
-      <dependencies>
-         <!--dependency>
-            <groupId>root.project.projects</groupId>
-            <artifactId>logging</artifactId>
-            <version>1.0</version>
-         </dependency-->
-         <!--dependency>
-            <groupId>root.project</groupId>
-            <artifactId>primary-source</artifactId>
-            <version>1.0</version>
-         </dependency>
-         <dependency>
-            <groupId>root.project.servlets</groupId>
-            <artifactId>servlet</artifactId>
-            <version>1.0</version>
-            <type>war</type>
-         </dependency>
-         <dependency>
-            <groupId>root.project</groupId>
-            <artifactId>ejbs</artifactId>
-            <version>1.0</version>
-            <type>ejb</type>
-         </dependency-->
-      </dependencies>
-   </dependencyManagement>
-   <dependencies>
-         <dependency>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.joyscrum</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <artifactId>installer-ear</artifactId>
+    <packaging>pom</packaging>
+    <name>Instaler Project</name>
+    <modules>
+        <!--module>projects</module-->
+        <!--module>primary-source</module-->
+        <!--module>servlets</module-->
+        <!--module>ejbs</module-->
+        <module>ear</module>
+        <!--module>site</module-->
+    </modules>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <configuration>
+                        <unzipCommand>/usr/bin/unzip -o > err.txt</unzipCommand>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.4.1</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>ear/src/main/application/temp</directory>
+                                <includes>
+                                    <include>**/*</include>
+                                </includes>
+                                <followSymlinks>false</followSymlinks>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.8</version>
+                    <configuration>
+                        <defaultLibBundleDir>lib/</defaultLibBundleDir>
+                        <skinnyWars>true</skinnyWars>
+                        <finalName>joyscrum-${version}</finalName>
+                        <generatedDescriptorLocation>${basedir}/src/main/application/META-INF
+                        </generatedDescriptorLocation>
+                        <modules>
+                            <webModule>
+                                <groupId>com.joyscrum</groupId>
+                                <artifactId>gamification-api</artifactId>
+                                <uri>gamification-api.war</uri>
+                                <bundleFileName>gamification.war</bundleFileName>
+                                <contextRoot>/gamification</contextRoot>
+                            </webModule>
+                            <webModule>
+                                <groupId>com.joyscrum</groupId>
+                                <artifactId>rest-services</artifactId>
+                                <uri>restservices.war</uri>
+                                <bundleFileName>restservices.war</bundleFileName>
+                                <contextRoot>/rest</contextRoot>
+                            </webModule>
+                        </modules>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <!--dependency>
+               <groupId>root.project.projects</groupId>
+               <artifactId>logging</artifactId>
+               <version>1.0</version>
+            </dependency-->
+            <!--dependency>
+               <groupId>root.project</groupId>
+               <artifactId>primary-source</artifactId>
+               <version>1.0</version>
+            </dependency>
+            <dependency>
+               <groupId>root.project.servlets</groupId>
+               <artifactId>servlet</artifactId>
+               <version>1.0</version>
+               <type>war</type>
+            </dependency>
+            <dependency>
+               <groupId>root.project</groupId>
+               <artifactId>ejbs</artifactId>
+               <version>1.0</version>
+               <type>ejb</type>
+            </dependency-->
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>gamification-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>war</type>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>gamification-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>pom</type>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>rest-services</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>war</type>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>rest-services</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>pom</type>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>db-utils</artifactId>
             <version>1.0-SNAPSHOT</version>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>db-utils</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>pom</type>
-         </dependency>
-         <dependency>
+        </dependency>
+        <dependency>
             <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
             <version>1.3.2</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
             <version>1.3.2</version>
@@ -130,12 +147,12 @@
             <artifactId>cdi-api</artifactId>
             <version>RELEASE</version>
         </dependency>
-   </dependencies>
-   <distributionManagement>
-      <site>
-         <id>site</id>
-         <name>project website</name>
-         <url>scp://local.company.com/websites/project.company.com/</url>
-      </site>
-   </distributionManagement>
+    </dependencies>
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <name>project website</name>
+            <url>scp://local.company.com/websites/project.company.com/</url>
+        </site>
+    </distributionManagement>
 </project>
