@@ -26,6 +26,7 @@
 <script>
     $('#signinButton').click(function () {
         // signInCallback defined in step 6.
+        //auth2.grantOfflineAccess().then(signInCallback);
         auth2.grantOfflineAccess().then(signInCallback);
     });
 
@@ -35,7 +36,8 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/rest/api/player/validate',
+               // url: '/rest/api/player/validate',
+                url: '/rest/api/AUTH',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 },

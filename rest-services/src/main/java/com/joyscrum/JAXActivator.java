@@ -16,8 +16,13 @@
  */
 package com.joyscrum;
 
+import com.joyscrum.filters.AuthResource;
+import com.joyscrum.filters.JWTAuthFilter;
+import com.joyscrum.filters.JWTResponseFilter;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.Set;
 
 /**
  * JAXActivator is an arbitrary name, what is important is that javax.ws.rs.core.Application is extended
@@ -27,4 +32,13 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("api")
 public class JAXActivator extends Application {
     // Left empty intentionally
+
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> classes = super.getClasses();
+       // classes.add(AuthResource.class);
+      //  classes.add(JWTAuthFilter.class);
+      //  classes.add(JWTResponseFilter.class);
+        return classes;
+    }
 }
