@@ -9,7 +9,7 @@ import org.mongodb.morphia.annotations.Id;
  * on 3/27/17.
  */
 @Entity("Rol")
-public class Rol extends ModelBase {
+public class Rol  extends ModelBase {
     @Id
     private ObjectId id;
 

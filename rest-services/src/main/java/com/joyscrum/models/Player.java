@@ -6,6 +6,9 @@ import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Reference;
 import org.mongodb.morphia.annotations.Transient;
 
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 /**
  * Created by Jorge Mota
  * on 3/24/17.
@@ -36,6 +39,7 @@ public class Player extends ModelBase {
     private String profileId;
     private String origin;
     @Reference
+    @OneToMany
     private Team equipo;
 
 

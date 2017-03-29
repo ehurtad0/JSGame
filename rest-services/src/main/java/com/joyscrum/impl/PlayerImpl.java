@@ -112,7 +112,7 @@ public class PlayerImpl {
         if (player == null) {
             return false;
         }
-        Team team = store.createQuery(Team.class).field("id").equal(teamId).get();
+        Team team = store.createQuery(Team.class).field("_id").equal(teamId).get();
         if (team == null) {
             return false;
         }
@@ -123,16 +123,19 @@ public class PlayerImpl {
 
     public boolean updateRol(ObjectId userId, ObjectId rolId) {
         Datastore store = connection.getDataStore();
-        Rol rol = store.createQuery(Rol.class).field("id").equal(rolId).get();
-        if (rol == null) {
-            return false;
-        }
+
         Player player = store.createQuery(Player.class).field("id").equal(userId).get();
-        if (player == null) {
+        if (!ObjectId.isValid(rolId.toHexString()) || player == null) {
             return false;
         }
+        Rol rol = store.createQuery(Rol.class).field("_id").equal(rolId).get();
+        if (!ObjectId.isValid(userId.toHexString()) || rol == null) {
+            return false;
+        }
+
         player.setRol(rol);
         store.save(player);
+
         return true;
     }
 }
