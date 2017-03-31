@@ -3,38 +3,45 @@ package com.joyscrum.models;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Reference;
+import org.mongodb.morphia.annotations.Transient;
 
-import java.util.Date;
-import java.util.List;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Created by Jorge Mota
  * on 3/24/17.
  */
-@Entity("player")
-public class Player {
+@Entity("Jugador")
+public class Player extends ModelBase {
     @Id
     private ObjectId id;
 
-    private String address;
-    private int age;
-    private String avatar;
-    private String email;
-    private String equipo;
-    private String fechanacimiento;
-    private List<Friend> friends;
-    private String genero;
+
     private String guid;
     private int index;
-    private boolean isActive;
-    private List<Mission>  mision;
-    private String nombre;
-    private double progreso;
-    private long puntos;
-    private String registered;
-    private String Rol;
-    private String token;
+    private boolean esActivo;
     private String urlimagen;
+    private String avatar;
+    private int edad;
+    @Reference
+    private Rol rol;
+    private String nombre;
+    private String genero;
+    private long puntos;
+    private double progreso;
+    private String email;
+    private String fechaNac;
+    private String direccion;
+    private String registro;
+    private String token;
+    private String profileId;
+    private String origin;
+    @Reference
+    @OneToMany
+    private Team equipo;
+
 
     public ObjectId getId() {
         return id;
@@ -42,70 +49,6 @@ public class Player {
 
     public void setId(ObjectId id) {
         this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(String equipo) {
-        this.equipo = equipo;
-    }
-
-    public String getFechanacimiento() {
-        return fechanacimiento;
-    }
-
-    public void setFechanacimiento(String fechanacimiento) {
-        this.fechanacimiento = fechanacimiento;
-    }
-
-    public List<Friend> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<Friend> friends) {
-        this.friends = friends;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 
     public String getGuid() {
@@ -124,20 +67,44 @@ public class Player {
         this.index = index;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean isEsActivo() {
+        return esActivo;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setEsActivo(boolean esActivo) {
+        this.esActivo = esActivo;
     }
 
-    public List<Mission> getMision() {
-        return mision;
+    public String getUrlimagen() {
+        return urlimagen;
     }
 
-    public void setMision(List<Mission> mision) {
-        this.mision = mision;
+    public void setUrlimagen(String urlimagen) {
+        this.urlimagen = urlimagen;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public String getNombre() {
@@ -148,12 +115,12 @@ public class Player {
         this.nombre = nombre;
     }
 
-    public double getProgreso() {
-        return progreso;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setProgreso(double progreso) {
-        this.progreso = progreso;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public long getPuntos() {
@@ -164,20 +131,44 @@ public class Player {
         this.puntos = puntos;
     }
 
-    public String getRegistered() {
-        return registered;
+    public double getProgreso() {
+        return progreso;
     }
 
-    public void setRegistered(String registered) {
-        this.registered = registered;
+    public void setProgreso(double progreso) {
+        this.progreso = progreso;
     }
 
-    public String getRol() {
-        return Rol;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRol(String rol) {
-        Rol = rol;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(String registro) {
+        this.registro = registro;
     }
 
     public String getToken() {
@@ -188,11 +179,29 @@ public class Player {
         this.token = token;
     }
 
-    public String getUrlimagen() {
-        return urlimagen;
+    public String getProfileId() {
+        return profileId;
     }
 
-    public void setUrlimagen(String urlimagen) {
-        this.urlimagen = urlimagen;
+    public void setProfileId(String profileId) {
+        this.profileId = profileId;
     }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public Team getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Team equipo) {
+        this.equipo = equipo;
+    }
+
+
 }
