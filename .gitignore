@@ -10,3 +10,4 @@ installer-ear/ear/src/main/application/META-INF/temp/**
 **/deployRemote.sh
 deployRemote.sh
 
+/react-app/nbproject/private/

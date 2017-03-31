@@ -146,7 +146,7 @@ h4{
 }
 
 .btn-google{
-	background-color: #db3236 !important;
+	background-color: #4285f4 !important;
 }
 
 .btn-trello{
@@ -328,10 +328,10 @@ h4{
 }
 
 .dashboard .avatarImg > a{
-	padding: 2px !important;
+	padding: 5px !important;
 }
 
-.dashboard .dashboard-home{
+.dashboard .dashboard-home > div{
 	padding: 50px 50px 0px 50px;
 }
 
@@ -350,6 +350,9 @@ h4{
 	text-align: center;
 	border-radius: 16px;
 	padding-top: 8px; 
+}
+.horizontalBarSpace{
+
 }
 .horizontalBarChart .horizontalBarChartList > li:first-child{
 	width: 120px;
@@ -385,6 +388,7 @@ h4{
 
 .horizontalBar > .title {
 	width: 150px;
+	height: 35px;
 	border-top-left-radius: 17.5px; 
 	border-bottom-left-radius: 17.5px; 
 	color: #fff;
@@ -520,3 +524,13 @@ h4{
 	background-color: #FFF;
 }
 /*Dashboard*/
+/*GameZone*/
+.gameZoneMainWrapper{
+  background: #194166; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#194166,#076099,#F8FCEB,#FEFEFE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#194166,#076099,#F8FCEB,#FEFEFE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#194166,#076099,#F8FCEB,#FEFEFE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#194166,#076099,#F8FCEB,#FEFEFE); /* Standard syntax */
+  min-height: 100%;
+}
+/*GameZone*/

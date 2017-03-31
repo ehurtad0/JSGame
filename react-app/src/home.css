@@ -1,0 +1,230 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	.home-page .btn-blue {
+		height: 42px;
+		border-radius: 21px !important;
+		color: #FFF !important;
+		background-color: #2491ec;
+	}
+
+	.home-page .howItWorksTitle{
+		font-weight: bold;
+	}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.home-page .top-home-page{
+		padding-top: 30px;
+		background-image: url('./img/backgroundmain.png');
+	    background-repeat: no-repeat;
+	    background-size: 100% auto;
+	    background-position: center top;
+
+	}
+
+	.home-page .homeLogo{
+		padding: 0px !important;
+	}
+	.home-page .homeLogo > img {
+		width: 150px;
+		margin-top: 5px; 
+	}
+
+	.home-page .navbar-header{
+		padding: 0px;
+	}
+
+	.home-page > .navbar{
+		/*margin-top: 30px !important; */
+	}
+
+	.loginBtnWrapper{
+		margin: 4px 5px;
+	}
+
+	.loginBtnWrapper > button{
+		min-width: 125px;
+		height: 42px;
+		border-radius: 21px !important;
+	}
+
+	.home-page .btn {
+		/*border-radius: 0px !important;*/
+	}
+
+	.home-page .nav.navbar-nav.navbar-right > li{
+		min-width: 125px;
+		text-align: center;
+	}
+
+	.home-page .navbar.navbar-default{
+		border-color: transparent !important;
+		box-shadow: none !important;
+		background-color: transparent !important;
+		background-image: none !important;
+	}
+
+	.btn-transparent{
+		background-color: transparent;
+		color: #2491ec !important;
+		border-color: #2491ec !important;
+	}
+
+	.home-page .mainFormWrapper{
+		position: relative;
+	}
+
+	.home-page .mainFormWrapper > div{
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		right: 0%;
+		padding: 0 20px 0 15px;
+		transform: translateY(-50%);
+	}
+
+	.home-page .brandsContainer{
+		height: 64px;
+		background-color: #f7f8f9;
+		border-top: 1px solid #e6e6e6;
+		border-bottom: 1px solid #e6e6e6;
+		margin-top: 60px;
+	}
+
+	.home-page .infoWapper{
+		padding-top: 60px;
+	}
+
+	.home-page .brandsContainer{
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+	}
+
+	.home-page .homeSliderItem > .homeSliderInfo {
+		padding-right: 80px !important;
+		padding-top: 50px;
+	}
+
+	.home-page .homeSliderWrapper > .row{
+		margin: 0 !important;
+	}
+
+	.home-page .CreateYourTeamWrapper{
+		padding-top: 100px;
+		min-height: 320px;
+		background-image: url('./img/background1.png');
+	    background-repeat: no-repeat;
+	    background-size: 100% auto;
+	    background-position: center top;
+	    
+	}
+
+	.home-page .CreateYourTeamWrapper .descriptionWrapper {
+		padding-left: 100px;
+	}
+
+	.home-page .brandList{
+		list-style: none;
+		padding: 0 !important;
+		text-align: center;
+		max-height: 64px;
+	}
+
+	.home-page .brandList > li.brand {
+		float: left;
+		display: inline-block;
+		height: 64px;
+		max-height: 64px;
+		min-width: 10%; 
+	}
+
+	.home-page .brandList > li.brand:first-child{
+		font-size: 14pt;
+		font-weight: bold;
+		padding-top: 20px;
+		color: #E6E6E6;
+	}
+
+	.home-page .brandList > li.brand > img {
+		height: 62px;
+		max-height: 62px;
+	}
+
+	.home-page p.clear {
+		clear: both !important;
+		margin: 0 !important;
+	}
+
+	.home-page .footerLinksList{
+		list-style: none;
+		padding: 0px !important;
+	}
+
+	.home-page .footerLinkWrapper > p{
+		color: #b4b4b4 !important;
+	}
+
+	.home-page .footerLinksList > li > a{
+		color: #b4b4b4 !important;
+		text-decoration: none !important;
+	}
+
+	.home-page .footer{
+		padding-top: 54px;
+		padding-bottom: 30px;
+	}
+
+	.home-page nav a,{
+		color: #b4b4b4 !important;
+	}
+
+	.home-page .footerSubLinks > ul{
+		list-style: none;
+		width: auto;
+		padding: 0px;
+
+	}
+
+	.home-page .footerSubLinks > ul > li{
+		/*float: left;*/
+		display: inline;
+		padding: 0 15px 15px 0;
+		
+	}
+
+	.home-page .footerSubLinks > ul > li > a{
+		border-left: 1px solid #b4b4b4;
+		padding-left: 15px;
+	}
+
+	.home-page .footerSubLinks > ul > li:first-child > a{
+		border-left: none;
+	}
+
+	.home-page .footerSubLinks > ul > li > a{
+		color: #b4b4b4 !important;
+	}
+
+
+
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
