@@ -30,6 +30,7 @@ const MainImage = () => (
 
 (function ($) {
   var w = $(window).width();
+
   $(document).ready(function(){
     fixHeight($('.mainImageWrapper'), $('.mainFormWrapper'));
   });
@@ -38,6 +39,10 @@ const MainImage = () => (
     w = $(window).width();
     fixHeight($('.mainImageWrapper'), $('.mainFormWrapper'));
   });
+
+  setInterval(function(){
+    fixHeight($('.mainImageWrapper'), $('.mainFormWrapper'));
+  },1000);
 
   function fixHeight(div1, div2){
       var h1 = div1.height();

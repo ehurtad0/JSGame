@@ -1,48 +1,79 @@
 import React, { Component } from 'react';
 import HorizontalBar from './HorizontalBar.js'
-var LineChart = require("react-chartjs").Line;
-var DoughnutChart = require("react-chartjs").Doughnut;
+var LineChart = require("react-chartjs-v2").Line;
+var DoughnutChart = require("react-chartjs-v2").Doughnut;
 var chartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
         {
             label: "My First dataset",
             fillColor: "rgba(40, 146, 240, 0.3)",
-            strokeColor: "rgba(40, 146, 240,1)",
-            pointColor: "rgba(40, 146, 240,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            borderColor: "rgba(40, 146, 240,1)",
+            pointBorderColor: "rgba(40, 146, 240,1)",
+            //pointStrokeColor: "#fff",
+            //pointHighlightFill: "#fff",
+            //pointHighlightStroke: "rgba(220,220,220,1)",
             data: [100, 90, 85, 81, 56, 55, 40],
+            fill: true
         }
     ]
 };
 
-var chartData2 = [
-          {
-              value: 80,
-              color:"#1871ad",
-              highlight: "#1871ad",
-              label: "Completed",
-              width: 10
-          },
-          {
-              value: 20,
-              color: "#FFFFFF",
-              highlight: "#FFFFFF",
-              label: "Remaining"
-          }
-          ];
+var chartData2 = {
+    labels: [
+        "Complete",
+        "Remaining",
+    ],
+    datasets: [
+        {
+            data: [80, 20],
+            backgroundColor: [
+                "#36A2EB",
+                "#FFFFFF"
+            ],
+            hoverBackgroundColor: [
+                "#36A2EB",
+                "#FFFFFF"
+            ],
+            /*borderWidth: [
+            	15,
+            	15
+            ]*/
+        }]
+};
 
-var chartOptions2 = {percentageInnerCutout : 80};
+var chartOptions2 = {
+	legend: {
+        display: false
+	},
+	cutoutPercentage: 90
+};
 
 var chartOptions = {
+		elements: { 
+			point: { 
+				radius: 0, hitRadius: 5, hoverRadius: 5 
+			} 
+		},
+
+		legend: {
+        display: false
+	    },
+	    tooltips: {
+	        enabled : true
+	    },
+
         scales: {
             xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }]
-        }
+                //display: false,
+                //drawBorder: false,
+            }],
+            yAxes: [{
+                //display: false,
+                //drawBorder: false,
+            }],
+        },
+        
     };
 const DashboardHome = () => (
 	<div>
@@ -52,44 +83,46 @@ const DashboardHome = () => (
 			<div className="col-xs-12">
 				<ul className="horizontalBarChartList">
 				<li>&nbsp;</li>
-				<li>0</li>
-				<li>2</li>
-				<li>4</li>
-				<li>6</li>
-				<li>8</li>
-				<li>10</li>
-				<li className="active blue-1">12</li>
-				<li>14</li>
-				<li className="active blue-2">16</li>
-				<li className="active blue-3">18</li>
-				<li className="active blue-4">20</li>
-				<li>22</li>
-				<li className="active blue-5">24</li>
+				<li><p>0</p></li>
+				<li><p>2</p></li>
+				<li><p>4</p></li>
+				<li><p>6</p></li>
+				<li><p>8</p></li>
+				<li><p>10</p></li>
+				<li className="active blue-1"><p>12</p></li>
+				<li><p>14</p></li>
+				<li className="active blue-2"><p>16</p></li>
+				<li className="active blue-3"><p>18</p></li>
+				<li className="active blue-4"><p>20</p></li>
+				<li><p>22</p></li>
+				<li className="active blue-5"><p>24</p></li>
 				<p className="clear"></p>
 				</ul>
 
 			</div>
-			<div className="col-xs-12">
-				<HorizontalBar title="Lorem Ipsum" className="bar-width-2" color="blue-1"/>
-				<HorizontalBar title="Lorem Ipsum" className="bar-width-6" color="blue-2"/>
-				<HorizontalBar title="Lorem Ipsum" className="bar-width-14" color="blue-3"/>
-				<HorizontalBar title="Lorem Ipsum" className="bar-width-8" color="blue-4"/>
-				<HorizontalBar title="Lorem Ipsum" className="bar-width-24" color="blue-5"/>
+			<div className="col-xs-12 scrollArea">
+				<HorizontalBar title="Lorem Ipsum" className="bar-width-2" color="blue-1" value={2}/>
+				<HorizontalBar title="Lorem Ipsum" className="bar-width-6" color="blue-2" value={6}/>
+				<HorizontalBar title="Lorem Ipsum" className="bar-width-14" color="blue-3" value={14}/>
+				<HorizontalBar title="Lorem Ipsum" className="bar-width-8" color="blue-4" value={8}/>
+				<HorizontalBar title="Lorem Ipsum" className="bar-width-24" color="blue-5" value={24}/>
 			</div>
 			<p className="clear"></p>
 		</div>
 	</div>
 	<p className="clear"></p>
 	<div className='chartsWrapper'>
-			<div className="col-xs-4 doughnutChartWrapper">
+			<div className="col-xs-12 col-sm-4 doughnutChartWrapper">
 				<div className='w-background'>
 					<h3>Lorem Ipsum</h3>
+					<div className="canvasWrapper">
 					<DoughnutChart data={chartData2} options={chartOptions2} width="250" height="250"/>
 					<div className="doughnutChartLabel"><p>80%</p><p className="small">COMPLETE</p></div>
+					</div>
 				</div>
 			</div>
 
-			<div className="col-xs-8 linearChartWrapper">
+			<div className="col-xs-12 col-sm-8 linearChartWrapper">
 				<div className='w-background'>
 					<h3>Lorem Ipsum</h3>
 					<LineChart data={chartData} options={chartOptions} width="700" height="250"/>

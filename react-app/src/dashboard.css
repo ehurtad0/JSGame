@@ -1,0 +1,404 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	.dashboard .profileNav > ul > li > a{
+		padding-top: 12px;
+	}
+
+	.dashboard .w-background > h3{
+		padding: 15px 0px 10px 15px;
+		margin-top: 0px;
+	}
+
+	.dashboard .w-background{
+		padding-bottom: 15px;
+	}
+
+	.dashboard .doughnutChartWrapper{
+		padding: 0px;
+	}
+	.dashboard .linearChartWrapper{
+		margin-top: 30px;
+		padding: 0px;
+	}
+	.dashboard .linearChartWrapper > .w-background{
+		padding-bottom: 30px;
+	}
+
+	.horizontalBar > .title,
+	.horizontalBarChart .horizontalBarChartList > li:first-child{
+		width: 25%;
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li{
+		width: 10.714285714%
+	}
+
+	/*.bar-width-12{
+		width: 9.375%;
+	}*/
+
+	.bar-width-14{
+		/*width: 18.75%;*/
+		width: 10.714285714%
+	}
+
+	.bar-width-16{
+		/*width: 28.125%;*/
+		width: 21.428571428% 
+	}
+
+	.bar-width-18{
+		/*width: 37.5%;*/
+		width: 32.142857142000004%
+	}
+
+	.bar-width-20{
+		/*width: 46.875%;*/
+		width: 42.857142856% 
+	}
+	.bar-width-22{
+		/*width: 56.25%;*/
+		width: 53.57142857%
+	}
+	.bar-width-24{
+		/*width: 65.625%;*/
+		width: 64.28571428400001% 
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li > p{
+		font-size: 12px;
+		line-height: 24px;
+	}
+
+	.horizontalBar > .title{
+		position: relative;
+	}
+
+	.scrollArea{
+		max-height: 250px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	.imgThumb > div:first-child > img{
+		/*padding-right: 0px !important;*/
+		margin-top: 10px;
+	}
+
+	.imgThumb > div:last-child{
+		padding-left: 0px !important;
+	}
+
+	.imgThumb > div:last-child > h5{
+		margin-top: 18px;
+		margin-bottom: 0px;
+	}
+
+	.dashboard .tab-content{
+		background-color: #FFF;
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.dashboard .tab-content{
+		border-left: 1px solid #E6E6E6;
+		border-right: 1px solid #E6E6E6;
+		border-bottom: 1px solid #E6E6E6;
+	}
+
+	.dashboard .nav-tabs > li > a{
+		color: #555;
+		cursor: default;
+		background-color: #fff;
+		border: 1px solid #ddd;
+	}
+
+	.dashboard .dashboard-home > div{
+		padding: 10px 10px 0px 10px;
+	}
+
+	.dashboard .custom-btn-inbox{
+		border-radius: 20px;
+		color: #3ea3c6;
+		border: 1px solid #3ea3c6;
+		background-color: transparent;
+	}
+
+	.dashboard p, .home-page p {
+	    margin: 10px 0px;
+	}
+
+	.dashboard .imgThumb > div > p{
+		margin: 0px;
+	}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+	.dashboard .dashboard-home > div{
+		padding: 50px 50px 0px 50px;
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li{
+		width: 6.923076923%;
+	}
+
+	.dashboard .doughnutChartWrapper{
+		padding: 0px 15px 0px 0px;
+	}
+	.dashboard .linearChartWrapper{
+		margin-top: 0px;
+		padding: 0px 0px 0px 15px;
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li > p{
+		font-size: 12px;
+		line-height: 24px;
+	}
+
+	.horizontalBar > .title,
+	.horizontalBarChart .horizontalBarChartList > li:first-child{
+		width: 10%;
+	}
+
+	.horizontalBar > .title > h5{
+		/*display: inline;*/
+		/*text-transform: ;*/
+		/*font-size: 1vw;*/
+		width: 1000%;
+	}
+
+	.horizontalBar > .value {
+		height: 24px;
+		border-top-right-radius: 12px; 
+		border-bottom-right-radius: 12px; 
+	}
+
+	.bar-width-0{
+		display: none;
+	}
+
+	.bar-width-2{
+		width: 6.923076923%;
+	}
+
+	.bar-width-4{
+		width: 13.846153846%;
+	}
+
+	.bar-width-6{
+		width: 20.769230769%;
+	}
+
+	.bar-width-8{
+		width: 27.692307692%;
+	}
+
+	.bar-width-10{
+		width: 34.615384614999996%;
+	}
+
+	.bar-width-12{
+		width: 41.538461538%;
+	}
+
+	.bar-width-14{
+		width: 48.461538461%;
+	}
+
+	.bar-width-16{
+		width: 55.384615384%;
+	}
+
+	.bar-width-18{
+		width: 62.307692306999996%;
+	}
+
+	.bar-width-20{
+		width: 69.23076922999999%;
+	}
+	.bar-width-22{
+		width: 76.153846153%;
+	}
+	.bar-width-24{
+		width: 83.076923076%;
+	}
+
+	.emailBtnWrapper{
+		text-align: right;
+	}
+
+	.emailBtnWrapper > p,
+	.emailActionWrapper > p{
+		margin-top: 10px;
+	}
+
+	.emailActionWrapper{
+		text-align: center;
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+ .dashboard .weekNavWrapper {
+ 	padding-left: 5px;
+ 	padding-right: 5px;
+ }
+
+ .dashboard .menuItem{
+ 	cursor: pointer;
+ }
+
+ .horizontalBarChart .horizontalBarChartList > li > p{
+	
+}
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	
+	.horizontalBarChart .horizontalBarChartList > li > p{
+		font-size: 12px;
+		line-height: 24px;
+	}
+
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	.horizontalBarChart .horizontalBarChartList > li:nth-child(-n+7){
+	    display: none;
+	}
+	.horizontalBarChart .horizontalBarChartList > li:first-child{
+		display: block !important;
+	}
+
+	.value.bar-width-0,
+	.value.bar-width-2,
+	.value.bar-width-4,
+	.value.bar-width-6,
+	.value.bar-width-8,
+	.value.bar-width-12,
+	.value.bar-width-10
+	{
+		display: none;
+	}
+
+
+	.title.undten
+	{
+		border-top-right-radius: 12px;
+		border-bottom-right-radius: 12px;
+	}
+
+	.horizontalBar > .title > h5{
+		position: absolute;
+		width: 350%;
+	}
+
+	.dashboard .nav-tabs > li{
+		width: 33.33333%;
+	}
+
+	.dashboard .nav-tabs > li span,
+	.dashboard .nav-tabs > li i{
+		display: block;
+		text-align: center;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	
+}
+
+@media only screen and (max-width : 420px) {
+	.horizontalBarChartList > ul > li > p{
+		background-color: transparent !important;
+	}
+	.weekNavWrapper{
+		display: none;
+	}
+
+	.dashboard .nav > li > a{
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li{
+		/*height: 20px !important;*/
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li > p {
+	    font-size: 12px;
+	    line-height: 24px;
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	.weeksList > li {
+	    margin-right: 5px !important;
+	}
+
+	.horizontalBarChart .horizontalBarChartList > li > p {
+	    font-size: 10px;
+	    line-height: 20px;
+	}
+
+	.horizontalBar > .value {
+		height: 18px !important;
+		border-top-right-radius: 9px !important; 
+		border-bottom-right-radius: 9px !important; 
+	}
+
+	.horizontalBar > .title {
+		height: 18px !important;
+		border-top-left-radius: 9px !important; 
+		border-bottom-left-radius: 9px !important;
+	}
+
+	.title.undten
+	{
+		border-top-right-radius: 9px !important;
+		border-bottom-right-radius: 9px !important;
+	}
+
+	.horizontalBar > .title > h5{
+		font-size: 12px;
+	}
+
+	.horizontalBarChartList > li > p{
+		width: 18px !important;
+		height: 18px !important;
+	}
+
+	.dashboard .nav-tabs > li span{
+		font-size: 8pt;
+	}
+}
