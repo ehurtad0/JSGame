@@ -63,4 +63,16 @@ public class PlayerService {
         }
     }
 
+    @POST
+    @Path("/updatePlayer/{playerId}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response updatePlayerInfo(@PathParam("playerId") String userId, Player player) {
+        if (service.updatePlayer(new ObjectId(userId),player)){
+            return Response.ok().build();
+        }else{
+            return Response.status(406).build();
+        }
+    }
+
 }

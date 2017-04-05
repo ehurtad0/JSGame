@@ -11,6 +11,7 @@ public class SystemConfiguration {
     private String googleClientId;
     private String redirectURI;
     private boolean allowPlainRequest;
+    private boolean CORSAllowed;
 
     public void setEnvironment(String environment) {
         this.environment = environment;
@@ -42,5 +43,13 @@ public class SystemConfiguration {
 
     public boolean isAllowPlainRequest() {
         return allowPlainRequest;
+    }
+
+    public boolean isCORSAllowed() {
+        return CORSAllowed;
+    }
+
+    public void setCORSAllowed(boolean CORSAllowed) {
+        this.CORSAllowed = CORSAllowed;
     }
 }

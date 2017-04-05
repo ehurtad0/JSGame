@@ -8,7 +8,7 @@ import org.mongodb.morphia.annotations.Id;
  * Created by Jorge Mota
  * on 3/24/17.
  */
-@Entity
+@Entity("Mision")
 public class Mission extends ModelBase {
     @Id
     private ObjectId id;

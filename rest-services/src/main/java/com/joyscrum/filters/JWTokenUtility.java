@@ -18,15 +18,16 @@ public class JWTokenUtility {
 
     public static String buildJWT(String subject) {
         RsaJsonWebKey rsaJsonWebKey = RsaKeyProducer.produce();
-        System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
+       // System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
 
         JwtClaims claims = new JwtClaims();
         claims.setSubject(subject); // the subject/principal is whom the token is about
-
+//claims.setExpirationTimeMinutesInTheFuture(60*25);
         JsonWebSignature jws = new JsonWebSignature();
         jws.setPayload(claims.toJson());
         jws.setKey(rsaJsonWebKey.getPrivateKey());
         jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA256);
+
 
         String jwt = null;
         try {
@@ -35,9 +36,9 @@ public class JWTokenUtility {
             Logger.getLogger(JWTAuthFilter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        System.out.println("Claim:\n" + claims);
-        System.out.println("JWS:\n" + jws);
-        System.out.println("JWT:\n" + jwt);
+       // System.out.println("Claim:\n" + claims);
+       // System.out.println("JWS:\n" + jws);
+       // System.out.println("JWT:\n" + jwt);
 
         return jwt;
     }
