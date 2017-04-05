@@ -8,6 +8,7 @@ import plusCheck from '../img/plusCheck.png';
 import premiumCheck from '../img/premiumCheck.png';
 import basicCheck from '../img/basicCheck.png';
 import {Collapse} from 'react-bootstrap';
+import HomeFooter from './home/HomeFooter';
 var features = [
   'Lorem ipsum dolor sit amet',
   'Lorem ipsum dolor sit amet',
@@ -76,7 +77,9 @@ class Pricing extends Component {
         plus : false,
         advanced : false,
         premium : false, 
-      }
+      },
+      curentUser : 1,
+      curentPlan : 1,
     };
   }
 
@@ -87,6 +90,18 @@ class Pricing extends Component {
       this.setState( newStateObj );
   }
 
+  updateCurentUser(element){
+    this.setState(prevState => ({
+      curentUser: element,
+    }));
+  }
+
+   updateCurentPlan(element){
+    this.setState(prevState => ({
+      curentPlan: element,
+    }));
+  }
+
   render() {
     return (
       <div className="container">
@@ -95,9 +110,9 @@ class Pricing extends Component {
               <h4>
                 Our Plans
                 <span className="discountList">
-                  <a href="#" className="active">Yearly SAVE 18%</a>
-                  <a href="#">Two Yearly SAVE 32%</a>
-                  <a href="#">Monthly</a>
+                  <a href="#" onClick={() => this.updateCurentPlan(1)} className={(this.state.curentPlan ===1)? "active" : ""}>Yearly SAVE 18%</a>
+                  <a href="#" onClick={() => this.updateCurentPlan(2)} className={(this.state.curentPlan ===2)? "active" : ""}>Two Yearly SAVE 32%</a>
+                  <a href="#" onClick={() => this.updateCurentPlan(3)} className={(this.state.curentPlan ===3)? "active" : ""}>Monthly</a>
                 </span>
               </h4>  
           </div>
@@ -106,11 +121,11 @@ class Pricing extends Component {
           <div className="col-xs-12 usersNavWrapper">
               <div className="usersNav">
                 <ul className="nav nav-pills">
-                  <li role="presentation" className="active"><a href="#">5 <span>users</span></a></li>
-                  <li role="presentation"><a href="#">10 <span>users</span></a></li>
-                  <li role="presentation"><a href="#">15 <span>users</span></a></li>
-                  <li role="presentation"><a href="#">20 <span>users</span></a></li>
-                  <li role="presentation"><a href="#">+20 <span>users</span></a></li>
+                  <li role="presentation" className={(this.state.curentUser ===1)? "active" : ""}><a href="#" onClick={() => this.updateCurentUser(1)}>5 <span>users</span></a></li>
+                  <li role="presentation" className={(this.state.curentUser ===2)? "active" : ""}><a href="#" onClick={() => this.updateCurentUser(2)}>10 <span>users</span></a></li>
+                  <li role="presentation" className={(this.state.curentUser ===3)? "active" : ""}><a href="#" onClick={() => this.updateCurentUser(3)}>15 <span>users</span></a></li>
+                  <li role="presentation" className={(this.state.curentUser ===4)? "active" : ""}><a href="#" onClick={() => this.updateCurentUser(4)}>20 <span>users</span></a></li>
+                  <li role="presentation" className={(this.state.curentUser ===5)? "active" : ""}><a href="#" onClick={() => this.updateCurentUser(5)}>+20 <span>users</span></a></li>
                 </ul>
               </div>
           </div>
@@ -181,6 +196,7 @@ class Pricing extends Component {
                 }
             </div> 
           </div>
+          <HomeFooter/>
       </div>
     );
   }

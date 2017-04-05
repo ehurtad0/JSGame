@@ -60,7 +60,7 @@ class Profile extends Component {
 					</Col>
 					<Col s="12" m="12" className="imgAvatarWrapper">
 						<p>
-							<img src="http://www.venmond.com/demo/vendroid/img/avatar/big.jpg" className="img-circle"/>
+							<img src="http://www.venmond.com/demo/vendroid/img/avatar/big.jpg" className="circle"/>
 						</p>
 					</Col>
 					<Col s="12" className="editLinkWrapper">
@@ -73,7 +73,7 @@ class Profile extends Component {
 					<Col s="12" m="12" l="6" className="infoLeftWrapper">
 						<Row>
 						<Col s={12} m={12}>
-						<h3>Lorem Ipsum Name</h3>
+						<h4>Lorem Ipsum Name</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula justo, tempus rhoncus sodales eu, sodales et est. Aenean porta, odio ac viverra rhoncus</p>
 						</Col>
 						<Col s="12" m="12" l="6" className="infoRightWrapper">

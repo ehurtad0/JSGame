@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Match } from 'react-router-dom';
 import DashboardNav from './dashboard/DashboardNav';
 import DashboardHome from './dashboard/DashboardHome';
 import InviteMembers from './dashboard/InviteMembers';
+import Analytics from './dashboard/Analytics';
 import GameZone from './dashboard/GameZone';
 import lion from '../img/lionActive.png';
 import menu1 from '../img/menu1.png';
@@ -97,6 +98,7 @@ class Dashboard extends Component {
 						<Route path={'/dashboard/home'} component={DashboardHome}/>
 						<Route path={'/dashboard/GameZone'} component={GameZone}/>
 						<Route path={'/dashboard/InviteMembers'} component={InviteMembers}/>
+						<Route path={'/dashboard/Analytics'} component={Analytics}/>
 					</div>
 					</Router>
 				</div>

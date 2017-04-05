@@ -10,7 +10,7 @@ const MainImage = () => (
       <div className="col-xs-12 col-sm-4 mainFormWrapper">
       <div>
           <p>
-            <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Aenean molestie vestibulum dolor, ac sollicitudin est vehicula non.
+            <strong>Aprender y aplicar Scrum, ahora es divertido.</strong>
           </p>
           <form>
             <div className="form-group">
@@ -47,7 +47,7 @@ const MainImage = () => (
   function fixHeight(div1, div2){
       var h1 = div1.height();
       var h2 = div2.height();
-      if(parseInt(w) > 768){
+      if(parseInt(w) >= 768){
         if(h1 >= h2 ){
           div2.height(h1);
         } else {

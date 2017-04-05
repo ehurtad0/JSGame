@@ -49,13 +49,44 @@
  		color: #c1c1c1;
 }
 
+.register .loginRedirectionLinks p{
+	margin-top: 0px !important;
+}
+
 .register .closeBtnWrapper p > a {
+		transition: all 0.4s ease;
  		padding: 7px 10px;
  		border-radius: 50%;
  		border: 1px solid #00b3ff;
  		color: #00b3ff;
  		font-size: 20px;
 }
+
+.register .closeBtnWrapper p > a:hover {
+ 		border: 1px solid #FFF;
+ 		color: #FFF;
+ 		background-color: #00b3ff;
+}
+
+.register.user > .container{
+	height: 100%;
+}
+
+.register.user > .container > div{
+	height: 100%;
+}
+
+.register.user .loginWrapper, .register .registrationWrapper{
+	min-height: 500px !important;
+}
+
+.register.user, .register.newBackground{
+	background-image: url('./img/bgRegister.png');
+	background-repeat: no-repeat;
+	background-size: 100% 125px;
+	background-position: center top;
+}
+
 
 /*.register .profileDotsWrapper > ul > li:last-child{
 	clear: both !important;

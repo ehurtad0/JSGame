@@ -20,12 +20,12 @@ const HomeFooter = () => (
 	<div>
 		<div className="container footer">
 			<div className="col-xs-12 col-sm-4">
-			<img src={logoImg} />
+			<p><img src={logoImg} /></p>
 			</div>
-			<div className="col-xs-12 col-sm-8">
+			<div className="col-xs-12 col-sm-8 hidden">
 			{
 				footerLinkList.map(function(el){
-				return	<div className="col-xs-12 col-sm-4 footerLinkWrapper">
+				return	<div className="col-xs-12 col-sm-4 hidden-xs footerLinkWrapper">
 						<p><strong>{el.title}</strong></p>
 						<ul className="footerLinksList">
 							{

@@ -16,10 +16,8 @@ class App extends Component {
     return (
       <Router history = {history} >
       <div className="mainContainer">
-        <Route exact path="/" render = {() => (
-          <Redirect to = '/page/home' />
-        )} />
-        <Route path="/page" component={Page}/>
+        <Route exact path="/" component={Page}/>
+        <Route path="/price" component={Page}/>
         <Route path="/register" component={Register}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/user" component={User}/>

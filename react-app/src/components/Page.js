@@ -25,9 +25,9 @@ class Page extends Component {
     super(props);
     this.state = {
       initialClass: 'home-page',
-      headerClass: (this.props.location.pathname =='/page')? 'top-home-page' : 'top-price-page',
+      headerClass: (this.props.location.pathname =='/')? 'top-home-page' : 'top-price-page',
       displayImg: true,
-      isHome: (this.props.location.pathname =='/page/home')
+      isHome: (this.props.location.pathname =='/')
     };
     // This line is important!
     this.handleClick = this.handleClick.bind(this);
@@ -49,24 +49,24 @@ class Page extends Component {
 
   render() {
     return (
-      <Router>
+      
       <div className={this.state.initialClass}>
       <div className={this.state.headerClass}>
           {/*Nav Bar*/}
             <Navbar collapseOnSelect>
                 <Navbar.Header>
                   <Navbar.Brand className='homeLogo'>
-                    <Link to="/page/home" onClick={() => this.handleClick('home-page','top-home-page', true)}><img src={logo}/></Link>
+                    <Link to="/" onClick={() => this.handleClick('home-page','top-home-page', true)}><img src={logo}/></Link>
                   </Navbar.Brand>
                   <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                   <Nav pullRight>
-                    <li role="presentation"><a href="#">How it Works</a></li>
-                    <li role="presentation"><Link to='/page/price' onClick={() => this.handleClick('home-page','top-price-page', false)}>Pricing</Link></li>
+                    <li role="presentation"><Link to="#howItWorks">How it Works</Link></li>
+                    <li role="presentation"><Link to='/price' onClick={() => this.handleClick('home-page','top-price-page', false)}>Pricing</Link></li>
                     <li role="presentation"><a href="#">About</a></li>
                     <li role="presentation" className="loginBtnWrapper">
-                      <button href="#" className="btn btn-transparent">Login</button>
+                      <button href="#" className="btn btn-transparent"><Link to='/user/login'>Login</Link></button>
                     </li>
                   </Nav>
                 </Navbar.Collapse>
@@ -76,14 +76,14 @@ class Page extends Component {
             <MainImage />
           }
       </div>
-          
-          <div className='homePageWrapper'>
-              <Route exact path="/page/home" component={Home}/>
-              <Route path='/page/price' component={Pricing}/>
-          </div>
-          
+          <Router>
+            <div className='homePageWrapper'>
+                <Route exact path="/" component={Home}/>
+                <Route path='/price' component={Pricing}/>
+            </div>
+          </Router>
       </div>
-      </Router>
+      
     );
   }
 }

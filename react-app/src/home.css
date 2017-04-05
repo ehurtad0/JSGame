@@ -16,6 +16,11 @@
 		border-radius: 21px !important;
 		color: #FFF !important;
 		background-color: #2491ec;
+		transition: background-color 0.4s ease;
+	}
+
+	.home-page .btn-blue:hover{
+		background-color: #1D7EE0;
 	}
 
 	.home-page .btn-custom{
@@ -59,9 +64,27 @@
 	}
 
 	.btn-transparent{
+		transition: all 0.4s ease;
 		background-color: transparent;
 		color: #2491ec !important;
 		border-color: #2491ec !important;
+	}
+
+	.btn-transparent > a{
+		color: #2491ec !important;
+		text-decoration: none;
+	}
+
+	.btn-transparent:hover > a,
+	.btn-transparent:hover > a:hover{
+		color: #FFF !important;
+		text-decoration: none;
+	}
+
+	.btn-transparent:hover{
+		background-color: #2491ec;
+		color: #FFF !important;
+		border-color: #FFF !important;
 	}
 
 	.home-page .discountList{
@@ -226,36 +249,108 @@
 	}
 
 	.btn.basic{
+		transition: all 0.5s ease;
 		background-color: transparent;
 		color: #ffc600 !important;
 		border-color: #ffc600 !important;
 		border-width: 2px !important;
 	}
 
+	.btn.basic:hover{
+		background-color: #ffc600;
+		color: #fff !important;
+		border-color: #fff !important;
+	}
+
 	.btn.plus{
+		transition: all 0.5s ease;
 		background-color: transparent;
 		color: #ff8100 !important;
 		border-color: #ff8100 !important;
 		border-width: 2px !important;
 	}
 
+	.btn.plus:hover{
+		background-color: #ff8100;
+		color: #fff !important;
+		border-color: #fff !important;
+	}
+
 	.btn.premium{
+		transition: all 0.5s ease;
 		background-color: transparent;
 		color: #00a806 !important;
 		border-color: #00a806 !important;
 		border-width: 2px !important;
 	}
 
+	.btn.premium:hover{
+		background-color: #00a806;
+		color: #FFF !important;
+		border-color: #FFF !important;
+	}
+
 	.btn.advanced{
+		transition: all 0.5s ease;
 		background-color: transparent;
 		color: #0093f1 !important;
 		border-color: #0093f1 !important;
 		border-width: 2px !important;
 	}
 
+	.btn.advanced:hover{
+		background-color: #0093f1;
+		color: #FFF !important;
+		border-color: #FFF !important;
+	}
+
 	.imgHolder.mobile{
 		margin-bottom: 15px;
 		cursor: pointer;
+	}
+
+	.home-page .brandsContainer{
+		height: 64px;
+		background-color: #f7f8f9;
+		border-top: 1px solid #e6e6e6;
+		border-bottom: 1px solid #e6e6e6;
+		margin-top: 60px;
+	}
+
+	.home-page .footer > div > p > img {
+		width: 100%;
+	}
+
+	.home-page .footerSubLinks > ul{
+		list-style: none;
+		width: auto;
+		padding: 0px;
+
+	}
+
+	.home-page .footerSubLinks > ul > li{
+		/*float: left;*/
+		display: inline;
+		padding: 0 15px 15px 0;
+		
+	}
+
+	.home-page .footerSubLinks > ul > li > a{
+		border-left: 1px solid #b4b4b4;
+		padding-left: 15px;
+	}
+
+	.home-page .footerSubLinks > ul > li:first-child > a{
+		border-left: none;
+	}
+
+	.home-page .footerSubLinks > ul > li > a{
+		color: #b4b4b4 !important;
+	}
+
+	.home-page .CreateYourTeamWrapper{
+		padding-top: 20px;
+		background-image: url('./img/background1.png');
 	}
 	
 
@@ -277,6 +372,21 @@
 @media only screen and (min-width : 768px) {
 	.home-page .navbar-header > a{
 		/*width: auto;*/
+	}
+
+	.home-page .howElement{
+		position: relative;
+	}
+
+	.home-page .infoWapper{
+	    position: absolute !important;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    padding-top: 0px !important;
+	}
+
+	.home-page .infoWapper.even{
+		right: 0px;
 	}
 
 	.home-page .nav.navbar-nav.navbar-right > li{
@@ -315,6 +425,50 @@
 	.home-page .usersNav span{
 		display: inline;
 	} 
+
+	.home-page .mainFormWrapper{
+		position: relative;
+	}
+
+	.home-page .mainFormWrapper > div{
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		right: 0%;
+		padding: 0 20px 0 15px;
+		transform: translateY(-50%);
+	}
+
+	.home-page .footerLinkWrapper > p{
+		color: #b4b4b4 !important;
+	}
+
+	.home-page .footerLinksList > li > a{
+		color: #b4b4b4 !important;
+		text-decoration: none !important;
+	}
+
+	.home-page .footerLinksList{
+		list-style: none;
+		padding: 0px !important;
+	}
+
+	.home-page .footerLinkWrapper > p{
+		color: #b4b4b4 !important;
+	}
+
+	.home-page .footerLinksList > li > a{
+		color: #b4b4b4 !important;
+		text-decoration: none !important;
+	}
+
+	.home-page .CreateYourTeamWrapper .descriptionWrapper {
+		padding-left: 100px;
+	}
+
+	.home-page .CreateYourTeamWrapper .descriptionWrapper > h2{
+		margin-top: 0px;
+	}
 
 }
 
@@ -377,27 +531,7 @@
 		min-width: 125px;
 	}
 
-	.home-page .mainFormWrapper{
-		position: relative;
-	}
-
-	.home-page .mainFormWrapper > div{
-		position: absolute;
-		top: 50%;
-		left: 0%;
-		right: 0%;
-		padding: 0 20px 0 15px;
-		transform: translateY(-50%);
-	}
-
-	.home-page .brandsContainer{
-		height: 64px;
-		background-color: #f7f8f9;
-		border-top: 1px solid #e6e6e6;
-		border-bottom: 1px solid #e6e6e6;
-		margin-top: 60px;
-	}
-
+	
 	.home-page .infoWapper{
 		padding-top: 60px;
 	}
@@ -482,33 +616,6 @@
 	}
 
 	.home-page nav a,{
-		color: #b4b4b4 !important;
-	}
-
-	.home-page .footerSubLinks > ul{
-		list-style: none;
-		width: auto;
-		padding: 0px;
-
-	}
-
-	.home-page .footerSubLinks > ul > li{
-		/*float: left;*/
-		display: inline;
-		padding: 0 15px 15px 0;
-		
-	}
-
-	.home-page .footerSubLinks > ul > li > a{
-		border-left: 1px solid #b4b4b4;
-		padding-left: 15px;
-	}
-
-	.home-page .footerSubLinks > ul > li:first-child > a{
-		border-left: none;
-	}
-
-	.home-page .footerSubLinks > ul > li > a{
 		color: #b4b4b4 !important;
 	}
 
@@ -606,10 +713,99 @@
 		padding-right: 0px;
 	}
 
+	.home-page #howItWorks{
+		margin-top: 20px;
+	}
+
+	
+
 
 }
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	#homePage{
+		text-align: center !important;
+	}
+
+	.home-page .mainFormWrapper{
+		text-align: center;
+	}
+
+	.home-page .footerSubLinks{
+		font-size: 10px;
+	}
+}
+
+@media only screen and (max-width : 320px) {
+	.home-page .usersNav > ul > li > a {
+		font-size: 12pt;
+	}
+}
+
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 
+}
+
+.home-page .slick-next, .home-page  .slick-prev {
+	    font-size: 0 !important; 
+   	   line-height: 0 !important; 
+	   z-index: 99999;
+}
+
+.home-page .slick-prev {
+    left: 15px;
+}
+.home-page .slick-next {
+    right: 15px;
+}
+
+.home-page .slick-next:before, .home-page .slick-prev:before {
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #2491ec;
+}
+
+.home-page  .slick-dots {
+    bottom: 20px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.home-page .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+}
+
+.home-page .slick-dots li button:before {
+    font-size: 15px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: #2491ec;
+} 
+
+.home-page .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #2491ec;
 }

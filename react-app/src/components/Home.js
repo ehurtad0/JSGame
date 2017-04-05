@@ -11,9 +11,11 @@ import HomeFooter from './home/HomeFooter';
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div id="homePage">
           <div className="row brandsContainer">
-          <HomeBrands />
+          {false &&
+           <HomeBrands />
+          }
           </div>
           <HowItWorks/>
           <SlideShowHome/>
