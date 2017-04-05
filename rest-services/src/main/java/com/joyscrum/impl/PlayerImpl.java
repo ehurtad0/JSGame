@@ -138,4 +138,35 @@ public class PlayerImpl {
 
         return true;
     }
+
+    public boolean updatePlayer(ObjectId userId, Player player) {
+        Datastore store = connection.getDataStore();
+
+        Player storedPlayer = store.createQuery(Player.class).field("id").equal(userId).get();
+        if (!ObjectId.isValid(userId.toHexString()) || player == null) {
+            return false;
+        }
+
+        storedPlayer.setEsActivo(player.isEsActivo());
+        //if (player.getProgreso()>0) {
+        //    storedPlayer.setProgreso(player.getProgreso());
+       // }
+        if (player.getDireccion()!=null){
+            storedPlayer.setDireccion(player.getDireccion());
+        }
+       if (player.getEdad()>0){
+            storedPlayer.setEdad(player.getEdad());
+       }
+       if (player.getFechaNac()!=null && player.getFechaNac().length()>0){
+           storedPlayer.setFechaNac(player.getFechaNac());
+       }
+       if (player.getGenero()!=null && player.getGenero().length()>0){
+           storedPlayer.setGenero(player.getGenero());
+       }
+       if (player.getNombre()!=null && player.getNombre().length()>0){
+           storedPlayer.setNombre(player.getNombre());
+       }
+        store.save(storedPlayer);
+        return true;
+    }
 }

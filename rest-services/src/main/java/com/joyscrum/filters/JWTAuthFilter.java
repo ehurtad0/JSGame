@@ -27,7 +27,7 @@ public class JWTAuthFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        System.out.println("request filter invoked...");
+       // System.out.println("request filter invoked...");
 
         String authHeaderVal = requestContext.getHeaderString("Authorization");
         if (requestContext.getUriInfo().getPath().equals("/AUTH")|| GetSystemConfiguration.getValue().isAllowPlainRequest()) {
@@ -36,8 +36,8 @@ public class JWTAuthFilter implements ContainerRequestFilter {
             //consume JWT i.e. execute signature validation
             if (authHeaderVal != null && authHeaderVal.startsWith("Bearer")) {
                 try {
-                    System.out.println("JWT based Auth in action... time to verify th signature");
-                    System.out.println("JWT being tested:\n" + authHeaderVal.split(" ")[1]);
+               //     System.out.println("JWT based Auth in action... time to verify th signature");
+               //     System.out.println("JWT being tested:\n" + authHeaderVal.split(" ")[1]);
                     final String subject = validate(authHeaderVal.split(" ")[1]);
                     final SecurityContext securityContext = requestContext.getSecurityContext();
                     if (subject != null) {
@@ -47,7 +47,7 @@ public class JWTAuthFilter implements ContainerRequestFilter {
                                 return new Principal() {
                                     @Override
                                     public String getName() {
-                                        System.out.println("Returning custom Principal - " + subject);
+//                                        System.out.println("Returning custom Principal - " + subject);
                                         return subject;
                                     }
                                 };
@@ -70,7 +70,7 @@ public class JWTAuthFilter implements ContainerRequestFilter {
                         });
                     }
                 } catch (InvalidJwtException ex) {
-                    System.out.println("JWT validation failed");
+  //                  System.out.println("JWT validation failed");
 
                     requestContext.setProperty("auth-failed", true);
                     requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
@@ -78,7 +78,7 @@ public class JWTAuthFilter implements ContainerRequestFilter {
                 }
 
             } else {
-                System.out.println("No JWT token !");
+//                System.out.println("No JWT token !");
                 requestContext.setProperty("auth-failed", true);
                 requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
             }
