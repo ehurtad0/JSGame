@@ -3,11 +3,8 @@ package com.joyscrum.models;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Reference;
+import org.mongodb.morphia.annotations.Property;
 import org.mongodb.morphia.annotations.Transient;
-
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  * Created by Jorge Mota
@@ -25,7 +22,9 @@ public class Player extends ModelBase {
     private String urlimagen;
     private String avatar;
     private int edad;
-    @Reference
+    @Property("rol_id")
+    private String rolId;
+    @Transient
     private Rol rol;
     private String nombre;
     private String genero;
@@ -38,15 +37,23 @@ public class Player extends ModelBase {
     private String token;
     private String profileId;
     private String origin;
-    @Reference
-    @OneToMany
+    @Transient
     private Team equipo;
+    @Property("equipo_id")
+    private String equipoId;
+
+    @Property("misionActual")
+    private String missionActualId;
+    @Transient
+    private MissionPlayer misionActual;
 
 
+    @Override
     public ObjectId getId() {
         return id;
     }
 
+    @Override
     public void setId(ObjectId id) {
         this.id = id;
     }
@@ -97,6 +104,14 @@ public class Player extends ModelBase {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
     }
 
     public Rol getRol() {
@@ -203,5 +218,27 @@ public class Player extends ModelBase {
         this.equipo = equipo;
     }
 
+    public String getEquipoId() {
+        return equipoId;
+    }
 
+    public void setEquipoId(String equipoId) {
+        this.equipoId = equipoId;
+    }
+
+    public String getMissionActualId() {
+        return missionActualId;
+    }
+
+    public void setMissionActualId(String missionActualId) {
+        this.missionActualId = missionActualId;
+    }
+
+    public MissionPlayer getMisionActual() {
+        return misionActual;
+    }
+
+    public void setMisionActual(MissionPlayer misionActual) {
+        this.misionActual = misionActual;
+    }
 }

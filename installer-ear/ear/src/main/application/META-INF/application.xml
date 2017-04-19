@@ -6,12 +6,6 @@
   <display-name>ear</display-name>
   <module>
     <web>
-      <web-uri>gamification-api.war</web-uri>
-      <context-root>/gamification</context-root>
-    </web>
-  </module>
-  <module>
-    <web>
       <web-uri>restservices.war</web-uri>
       <context-root>/rest</context-root>
     </web>

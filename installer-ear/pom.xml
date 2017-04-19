@@ -49,13 +49,13 @@
                         <generatedDescriptorLocation>${basedir}/src/main/application/META-INF
                         </generatedDescriptorLocation>
                         <modules>
-                            <webModule>
+                            <!--webModule>
                                 <groupId>com.joyscrum</groupId>
                                 <artifactId>gamification-api</artifactId>
                                 <uri>gamification-api.war</uri>
                                 <bundleFileName>gamification.war</bundleFileName>
                                 <contextRoot>/gamification</contextRoot>
-                            </webModule>
+                            </webModule-->
                             <webModule>
                                 <groupId>com.joyscrum</groupId>
                                 <artifactId>rest-services</artifactId>
@@ -96,18 +96,18 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <dependency>
+        <!--dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>gamification-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>war</type>
-        </dependency>
-        <dependency>
+        </dependency-->
+        <!--dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>gamification-api</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>pom</type>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>com.joyscrum</groupId>
             <artifactId>rest-services</artifactId>

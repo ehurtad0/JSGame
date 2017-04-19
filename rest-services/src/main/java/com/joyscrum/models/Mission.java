@@ -3,6 +3,7 @@ package com.joyscrum.models;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Property;
 
 /**
  * Created by Jorge Mota
@@ -12,10 +13,18 @@ import org.mongodb.morphia.annotations.Id;
 public class Mission extends ModelBase {
     @Id
     private ObjectId id;
-    private String tipomision;
+    private int tipomision;
     private String nombremision;
-    private String Rol;
+
+    private Rol rol;
+
+    @Property("rol_id")
+    private String rolId;
+
+    @Property("valorMision")
     private int valor;
+    @Property("posicionMision")
+
     private int posicion;
 
     public ObjectId getId() {
@@ -26,11 +35,11 @@ public class Mission extends ModelBase {
         this.id = id;
     }
 
-    public String getTipomision() {
+    public int getTipomision() {
         return tipomision;
     }
 
-    public void setTipomision(String tipomision) {
+    public void setTipomision(int tipomision) {
         this.tipomision = tipomision;
     }
 
@@ -40,14 +49,6 @@ public class Mission extends ModelBase {
 
     public void setNombremision(String nombremision) {
         this.nombremision = nombremision;
-    }
-
-    public String getRol() {
-        return Rol;
-    }
-
-    public void setRol(String rol) {
-        this.Rol = rol;
     }
 
     public int getValor() {
@@ -64,5 +65,17 @@ public class Mission extends ModelBase {
 
     public void setPosicion(int posicion) {
         this.posicion = posicion;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public String getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
     }
 }

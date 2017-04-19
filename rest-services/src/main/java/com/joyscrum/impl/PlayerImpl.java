@@ -9,9 +9,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.joyscrum.ConnectionDB;
 import com.joyscrum.GetSystemConfiguration;
-import com.joyscrum.models.Player;
-import com.joyscrum.models.Rol;
-import com.joyscrum.models.Team;
+import com.joyscrum.models.*;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 
@@ -23,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -39,7 +38,27 @@ public class PlayerImpl {
 
     public List<Player> listPlayers() {
         Datastore store = connection.getDataStore();
-        return store.createQuery(Player.class).asList();
+
+        List<Player> players= store.createQuery(Player.class).asList();
+        List<MissionPlayer> missions =null;
+        List<Team> teams= store.createQuery(Team.class).asList();
+        //HashMap<String,MissionPlayer> _mission= new HashMap<>(missions.size());
+        HashMap<String,Team> _team= new HashMap<>(teams.size());
+
+        for(Team t :  teams){
+        _team.put(t.getId().toHexString(),t);
+        }
+        //for(Mission m :  missions){
+        //    _mission.put(m.getId().toHexString(),m);
+        //}
+        for(Player p: players){
+            if (_team.containsKey(p.getEquipoId())){
+                p.setEquipo(_team.get(p.getEquipoId()));
+            }
+
+            //store.createQuery(MissionPlayer.class).field("jugador_id").equal(p.getId().toHexString()).asList();
+        }
+        return players;
     }
 
 
@@ -59,6 +78,7 @@ public class PlayerImpl {
                     token, GetSystemConfiguration.getValue().getRedirectURI()
 
             ).execute();
+
             GoogleIdToken idToken = tokenResponse.parseIdToken();
             result = idToken.getPayload();
             if (!result.getAudience().equals(CLIENT_ID)) {
@@ -116,7 +136,7 @@ public class PlayerImpl {
         if (team == null) {
             return false;
         }
-        player.setEquipo(team);
+        player.setEquipoId(teamId.toHexString());
         store.save(player);
         return true;
     }
@@ -133,7 +153,7 @@ public class PlayerImpl {
             return false;
         }
 
-        player.setRol(rol);
+        player.setRolId(rolId.toHexString());
         store.save(player);
 
         return true;
