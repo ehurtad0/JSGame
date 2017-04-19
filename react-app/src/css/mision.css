@@ -1,0 +1,200 @@
+.dashboard.mission .companyThumbanil > div{
+	float: left;
+	width: auto;
+	display: inline;
+}
+
+.dashboard.mission .clear{
+	display: block !important;
+}
+
+.dashboard.mission .companyThumbanil > div.image > img{ 
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	margin-right: 20px;
+}
+
+.dashboard.mission .companyThumbanil > div.info > p{
+	color: #3EA3C6;
+}
+
+.btn-full{
+	display: block;
+	min-width: 200px;
+}
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	.dashboard.mission .listWrapper ul{
+		list-style: none;
+		padding: 0;
+	}
+
+	.dashboard.mission .listWrapper ul > li{
+		margin-bottom: 15px; 
+	}
+
+	.dashboard.mission .currentWeekWrapper{
+		width: 205px;
+		height: 205px;
+		border-radius: 50%;
+		background: #043157; /* For browsers that do not support gradients */
+		background: -webkit-radial-gradient(#0064D1,#05A4C1,#005BA5,#043157); /* Safari 5.1-6.0 */
+		background: -o-radial-gradient(#0064D1,#05A4C1,#005BA5,#043157); /* For Opera 11.6-12.0 */
+		background: -moz-radial-gradient(#0064D1,#05A4C1,#005BA5,#043157); /* For Firefox 3.6-15 */
+		background: radial-gradient(#0064D1,#05A4C1,#005BA5,#043157); /* Standard syntax */
+		text-align: center;
+	}
+
+	.dashboard.mission .currentWeekWrapper > h1{
+		color: #FFF;
+		font-size: 90pt;
+		line-height: 90pt;
+		margin-bottom: 0;
+	}
+
+	.dashboard.mission .currentWeekWrapper > p{
+		color: #FFF;
+		font-size: 20pt;
+		line-height: 20pt;
+		margin-top: 0;
+		font-weight: bold;
+	}
+
+	.dashboard.mission .currentWeekWrapper{
+		position: relative;
+	}
+
+	.dashboard.mission .currentWeekWrapper:before{
+		content: "";
+		position: absolute;
+		width: 180px;
+		height: 180px;
+		border-top: 10px solid #FFF;
+		border-left: 10px solid #FFF;
+		border-bottom: 10px solid #FFF;
+		border-right: 10px solid transparent;
+		border-radius: 50%;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+	}
+
+	.dashboard.mission .mission-float > i{
+		color: #3EA3C6;
+		background-color: #FFF;
+	}
+
+	.dashboard.mission .mission-float.mssn1{
+		position: absolute;
+		right: 25.5%;
+		top: 65%;
+	}
+	.dashboard.mission .mission-float.mssn2{
+		position: absolute;
+		right: 60%;
+		bottom: 9%;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.dashboard.mission .dashboard-home{
+		min-height: calc(100% - 50px);
+		position: relative;
+	}
+
+	.dashboard.mission .missionWrapper{
+		background-color: #FFF;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		background-size: contain;
+		background-image: url('../img/misionBackground.png');
+		background-size: 100% calc(100% - 50px);
+    	background-repeat: no-repeat;
+	}
+
+	.dashboard.mission .listWrapper{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.dashboard.mission .listWrapper > div > h2{
+		color: #3EA3C6;
+	}
+
+	a.btn-mission{
+		transition: all 0.4s ease;
+		background-color: transparent;
+		color: #3EA3C6;
+		border-radius: 24px !important;
+		border: 2px solid #3EA3C6 !important; 
+	}
+
+	a.btn-mission:hover{
+		background-color: #3EA3C6;
+		color: #FFF !important;
+		border: 2px solid #FFF !important; 
+	}
+
+	.dashboard.mission .listWrapper  a.btn-mission{
+		margin-top: 15px;
+	}
+
+	.dashboard.mission .currentWeekWrapper{
+		position: absolute;
+		top: 7.5%;
+		right: 11.2%;
+	}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+}

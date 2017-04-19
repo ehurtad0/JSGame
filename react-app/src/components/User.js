@@ -18,6 +18,7 @@ class User extends Component
 	      	this.props.location.pathname =='/user/reset'
 	      ),
 	    };
+
 	}
 	render(){
 		return (

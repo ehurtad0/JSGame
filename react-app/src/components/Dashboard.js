@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import '../bootstrap/css/dashboard.css';
 import '../dashboard.css';
-import { BrowserRouter as Router, Route, Match } from 'react-router-dom';
+import '../css/mision.css';
+import { BrowserRouter as Router, Route, Match, Redirect } from 'react-router-dom';
 import DashboardNav from './dashboard/DashboardNav';
 import DashboardHome from './dashboard/DashboardHome';
 import InviteMembers from './dashboard/InviteMembers';
 import Analytics from './dashboard/Analytics';
 import GameZone from './dashboard/GameZone';
+import Mision from './dashboard/Mision';
 import lion from '../img/lionActive.png';
 import menu1 from '../img/menu1.png';
 import menu2 from '../img/menu2.png';
@@ -20,12 +22,16 @@ import menu4Active from '../img/menu4Active.png';
 class Dashboard extends Component {
 	constructor(props) 
 	{
+		var loggedIn = !(localStorage.getItem("jwtToken") === null);
 	    super(props);
 	    this.state = {
 	      sideBarVisible: true,
-	      dashboardClass: 'col-sm-10'
+	      dashboardClass: 'col-sm-10',
+	      dashboardCurrentClass: '',
+	      loggedIn : loggedIn
 	    };
 	    this.hideSideBar = this.hideSideBar.bind(this)
+	    this.setDashboardClass = this.setDashboardClass.bind(this)
 	    console.log(this.props.location.pathname);
   	}
 
@@ -38,10 +44,25 @@ class Dashboard extends Component {
 	   
 	}
 
+	setDashboardClass(newClassName){
+		this.setState({
+			dashboardCurrentClass: newClassName,
+		});
+	}
+
+
+
   	render () 
   	{
+  		if (!this.state.loggedIn){
+  			return(
+  				<Redirect to={{
+			        pathname: '/user/login',
+			     }}/>
+  			)
+  		}
   		return (
-			<div className='dashboard'>
+			<div className={'dashboard ' + this.state.dashboardCurrentClass}>
 				{ this.state.sideBarVisible &&
 					<div className='col-sm-2 sidebar fixed-xs'>
 						<div className="row">
@@ -99,6 +120,9 @@ class Dashboard extends Component {
 						<Route path={'/dashboard/GameZone'} component={GameZone}/>
 						<Route path={'/dashboard/InviteMembers'} component={InviteMembers}/>
 						<Route path={'/dashboard/Analytics'} component={Analytics}/>
+						<Route path={'/dashboard/Mision'} render={(props) => (
+							<Mision setDashboardClass={this.setDashboardClass}/>
+						)}/>
 					</div>
 					</Router>
 				</div>
