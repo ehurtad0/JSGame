@@ -92,7 +92,7 @@ public static boolean mustContinue=false ;
         String subject = null;
         RsaJsonWebKey rsaJsonWebKey = RsaKeyProducer.produce();
 
-        System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
+        //System.out.println("RSA hash code... " + rsaJsonWebKey.hashCode());
 
         JwtConsumer jwtConsumer = new JwtConsumerBuilder()
                 .setRequireSubject() // the JWT must have a subject claim
@@ -103,7 +103,7 @@ public static boolean mustContinue=false ;
             //  Validate the JWT and process it to the Claims
             JwtClaims jwtClaims = jwtConsumer.processToClaims(jwt);
             subject = (String) jwtClaims.getClaimValue("sub");
-            System.out.println("JWT validation succeeded! " + jwtClaims);
+         //   System.out.println("JWT validation succeeded! " + jwtClaims);
         } catch (InvalidJwtException e) {
             e.printStackTrace(); //on purpose
             throw e;
