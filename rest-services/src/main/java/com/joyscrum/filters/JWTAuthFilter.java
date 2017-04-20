@@ -24,11 +24,13 @@ import java.security.Principal;
 //@Priority(Priorities.USER)
 @Provider
 public class JWTAuthFilter implements ContainerRequestFilter {
-
+public static boolean mustContinue=false ;
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
        // System.out.println("request filter invoked...");
-
+        if (mustContinue){
+            return ;
+        }
         String authHeaderVal = requestContext.getHeaderString("Authorization");
         if (requestContext.getUriInfo().getPath().equals("/AUTH")|| GetSystemConfiguration.getValue().isAllowPlainRequest()) {
 
