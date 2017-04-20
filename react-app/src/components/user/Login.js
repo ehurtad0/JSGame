@@ -5,23 +5,29 @@ import '../../index.css';
 import logo from '../../img/logoRocket.png';
 import GoogleLogin from 'react-google-login';
 import { Link} from 'react-router-dom';
+const loginhelper = require('../../helpers/loginhelper');
 var appParameters = require('../../AppParameters');
-const responseGoogle = (response) => {
-  console.log(response['tokenId']);
-}
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    if(localStorage.getItem('jwtToken')!==null){
+      this.props.history.push('/user/profile');
+    }
     this.state = {isVisible: false};
     // This binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
   }
 
   handleClick() {
     this.setState(prevState => ({
       isVisible: !prevState.isVisible
     }));
+  }
+
+  responseGoogle(response){
+  loginhelper.loginThroughGoogleToken(response['code'],this.props.history);
   }
   render() {
     const isVisible = this.state.isVisible;
@@ -72,12 +78,14 @@ class Login extends Component {
                 <Row>
                   <Col s={12}>
                   <GoogleLogin
-                    clientId={appParameters.parameters.googleCLientId}
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    offline={false}
-                    className="btn waves-effect waves-light btn-radius-no capitalize sing-up-btn btn-google"
-                  >
+                      clientId={appParameters.parameters.googleCLientId}
+                      onSuccess={this.responseGoogle}
+                      onFailure={this.responseGoogle}
+                      offline={false}
+                      className="btn waves-effect waves-light btn-radius-no capitalize sing-up-btn btn-google"
+                      scope={'profile'}
+                      offline={true}
+                    >
                     <i className="fa fa-google"></i> Google
                   </GoogleLogin>
                   </Col>
@@ -94,5 +102,9 @@ class Login extends Component {
     );
   }
 }
+
+Login.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Login;

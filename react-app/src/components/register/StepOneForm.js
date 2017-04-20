@@ -3,17 +3,25 @@ import { Button, Input, Row , Col, Pagination} from 'react-materialize';
 import 'jquery';
 import '../../index.css';
 import GoogleLogin from 'react-google-login';
+const loginhelper = require('../../helpers/loginhelper');
 var appParameters = require('../../AppParameters');
-const responseGoogle = (response) => {
-  console.log(response['tokenId']);
-}
 
 class StepOneForm extends Component {
   constructor(props) {
+    var loggedIn = !(localStorage.getItem("jwtToken") === null);
     super(props);
-    this.state = {isVisible: false};
+    this.state = {
+      isVisible: false,
+      loggedIn: loggedIn
+    };
     // This binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
+  
+  }
+
+  responseGoogle(response){
+  loginhelper.loginThroughGoogleToken(response['code'],this.props.history);
   }
 
   handleClick() {
@@ -55,10 +63,12 @@ class StepOneForm extends Component {
           <Col s={12}>
           <GoogleLogin
             clientId={appParameters.parameters.googleCLientId}
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
             offline={false}
             className="btn waves-effect waves-light btn-radius-no capitalize sing-up-btn btn-google"
+            scope={'profile'}
+            offline={true}
           >
             <i className="fa fa-google"></i> Google
           </GoogleLogin>

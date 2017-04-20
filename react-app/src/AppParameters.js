@@ -1,6 +1,6 @@
 module.exports = {
     parameters : {
-        googleCLientId : '775229777373-sg76i1pt6aftuje5culvq6a3ougeanhd.apps.googleusercontent.com'
+        googleCLientId : '848466945514-2cjm71hei0t5r4gvqaf9cucjjhocnpv1.apps.googleusercontent.com'
     }
     
 }
