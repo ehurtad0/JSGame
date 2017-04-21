@@ -7,7 +7,8 @@ class Mision extends Component{
 		this.props.setDashboardClass('mission');
 
 		this.state = {
-			missions : []
+			missions : [],
+			secondaryMissions: []
 		}
 	}
 
@@ -29,7 +30,7 @@ class Mision extends Component{
 					<ul>
 						{
 							this.state.missions.map((mission,k) => {
-								return <li key={'mission'+k}>{mission.nombremision}</li>
+								return <li key={'mission'+k} className={(mission.isComplete === true)? 'isComplete' : 'isNotComplete'}>{mission.nombremision}</li>
 							})
 						}
 					</ul>
@@ -42,8 +43,8 @@ class Mision extends Component{
 				<h1>3</h1>
 				<p>Week</p>
 				</div>
-				<p className="mission-float mssn1"><i className="fa fa-circle-o"></i> Lorem ipsum dolor</p>
-				<p className="mission-float mssn2"><i className="fa fa-circle-o"></i> Lorem ipsum dolor</p>
+				<p className="mission-float mssn1"><i className="fa fa-circle-o"></i> {(typeof this.state.secondaryMissions[0] !== 'undefined')? this.state.secondaryMissions[0].nombremision : ''}</p>
+				<p className="mission-float mssn2"><i className="fa fa-circle-o"></i> {(typeof this.state.secondaryMissions[1] !== 'undefined')? this.state.secondaryMissions[0].nombremision : ''}</p>
 			</div>
 		)
 	}

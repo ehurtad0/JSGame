@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../bootstrap/css/dashboard.css';
 import '../dashboard.css';
 import '../css/mision.css';
+import '../css/gamezone.css';
 import { BrowserRouter as Router, Route, Match, Redirect } from 'react-router-dom';
 import DashboardNav from './dashboard/DashboardNav';
 import DashboardHome from './dashboard/DashboardHome';
@@ -117,7 +118,9 @@ class Dashboard extends Component {
 					<Router>
 					<div className='dashboard-home'>
 						<Route path={'/dashboard/home'} component={DashboardHome}/>
-						<Route path={'/dashboard/GameZone'} component={GameZone}/>
+						<Route path={'/dashboard/GameZone'} render={(props) => (
+							<GameZone setDashboardClass={this.setDashboardClass} />
+						)}/>
 						<Route path={'/dashboard/InviteMembers'} component={InviteMembers}/>
 						<Route path={'/dashboard/Analytics'} component={Analytics}/>
 						<Route path={'/dashboard/Mision'} render={(props) => (
