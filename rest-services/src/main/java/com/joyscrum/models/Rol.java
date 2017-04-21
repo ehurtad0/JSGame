@@ -4,11 +4,14 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Jorge Mota
  * on 3/27/17.
  */
 @Entity("Rol")
+@XmlRootElement
 public class Rol  extends ModelBase {
     @Id
     private ObjectId id;

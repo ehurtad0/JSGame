@@ -5,11 +5,15 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Jorge Mota
  * on 3/24/17.
  */
 @Entity("Mision")
+@XmlRootElement
+
 public class Mission extends ModelBase {
     @Id
     private ObjectId id;

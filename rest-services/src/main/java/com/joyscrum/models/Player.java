@@ -6,11 +6,14 @@ import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 import org.mongodb.morphia.annotations.Transient;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Jorge Mota
  * on 3/24/17.
  */
 @Entity("Jugador")
+@XmlRootElement
 public class Player extends ModelBase {
     @Id
     private ObjectId id;

@@ -3,11 +3,14 @@ package com.joyscrum.models;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Reference;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Jorge Mota
  * on 3/27/17.
  */
 @Embedded
+@XmlRootElement
 public class RolPlayer {
     @Reference
     private Rol rol;

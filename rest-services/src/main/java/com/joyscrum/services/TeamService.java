@@ -2,6 +2,7 @@ package com.joyscrum.services;
 
 import com.joyscrum.impl.TeamImpl;
 import com.joyscrum.models.Team;
+import com.webcohesion.enunciate.metadata.rs.TypeHint;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -22,6 +23,7 @@ public class TeamService {
     @GET
     @Path("/")
     @Produces({MediaType.APPLICATION_JSON})
+    @TypeHint(Team.class)
     public List<Team> listTeams() {
         return service.list();
     }
@@ -31,6 +33,7 @@ public class TeamService {
     @Path("/update/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
+    @TypeHint(Team.class)
     public Team logonPlayer(Team team, @PathParam("id") String id) {
         return service.update(team, id);
     }
@@ -38,6 +41,7 @@ public class TeamService {
     @GET
     @Path("/find/{name}")
     @Produces({MediaType.APPLICATION_JSON})
+    @TypeHint(Team.class)
     public List<Team> findTeams(@PathParam("name") String teamName) {
         return service.list(teamName);
     }

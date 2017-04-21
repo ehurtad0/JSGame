@@ -2,6 +2,7 @@ package com.joyscrum.services;
 
 import com.joyscrum.impl.RolImpl;
 import com.joyscrum.models.Rol;
+import com.webcohesion.enunciate.metadata.rs.TypeHint;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -20,6 +21,7 @@ public class RolService {
     RolImpl service;
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @TypeHint(Rol.class)
     public List<Rol> list(){
         return service.getList();
     }

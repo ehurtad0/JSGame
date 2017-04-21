@@ -9,6 +9,8 @@
     <name>JoyScrum RestServices API</name>
     <url>http://localhost:9990/rest</url>
     <properties>
+        <enunciate.version>2.9.1</enunciate.version>
+        <cargo.servlet.port>9001</cargo.servlet.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- JBoss dependency versions -->
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
@@ -95,6 +97,22 @@
             <artifactId>javaee-api</artifactId>
             <version>RELEASE</version>
         </dependency-->
+        <dependency>
+            <groupId>com.webcohesion.enunciate</groupId>
+            <artifactId>enunciate-core-annotations</artifactId>
+            <version>${enunciate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.webcohesion.enunciate</groupId>
+            <artifactId>enunciate-rt-util</artifactId>
+            <version>${enunciate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.3.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -123,7 +141,43 @@
                     </domain>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.webcohesion.enunciate</groupId>
+                <artifactId>enunciate-maven-plugin</artifactId>
+                <version>${enunciate.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourcepath-includes>
+                        <sourcepath-include>
+                            <groupId>com.joyscrum</groupId>
+
+                        </sourcepath-include>
+
+                    </sourcepath-includes>
+
+                    <enunciateArtifactId/>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.14</version>
+                <configuration>
+                    <configuration>
+                        <properties>
+                            <cargo.servlet.port>9081</cargo.servlet.port>
+                        </properties>
+                    </configuration>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
     <profiles>
         <profile>

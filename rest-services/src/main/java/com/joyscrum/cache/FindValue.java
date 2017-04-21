@@ -10,6 +10,9 @@ import java.util.List;
  * on 4/20/17.
  */
 public class FindValue {
+    /**
+     * Acá se debería establecer a un handler hacia MemCache Jboss Cache
+     */
     private static HashMap<String, Object> memCache = new HashMap<>(400);
 
     public static <T> T getSingle(Query<T> query, String identifier, boolean fromDB) {
@@ -40,6 +43,8 @@ public class FindValue {
             List<T> result = null;
             if (!memCache.containsKey(identifier)) {
                 result = query.asList();
+            }else{
+                result= (List<T>) memCache.get(identifier);
             }
             if (result != null) {
                 memCache.put(identifier, result);

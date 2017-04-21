@@ -4,12 +4,15 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * Created by Jorge Mota
  * on 3/27/17.
  */
 @Entity("Equipo")
+@XmlRootElement
 public class Team extends ModelBase {
     @Id
     private ObjectId id;

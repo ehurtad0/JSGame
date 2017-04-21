@@ -5,6 +5,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  * on 4/5/17.
  */
 @Entity("MisionJugador")
-
+@XmlRootElement
 public class MissionPlayer {
     @Id
     private ObjectId id;

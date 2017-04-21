@@ -4,6 +4,7 @@ import com.joyscrum.impl.PlayerImpl;
 import com.joyscrum.models.MissionPlayer;
 import com.joyscrum.models.Player;
 import com.joyscrum.models.ToID;
+import com.webcohesion.enunciate.metadata.rs.TypeHint;
 import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
@@ -26,6 +27,7 @@ public class PlayerService {
     @GET
     @Path("/")
     @Produces({MediaType.APPLICATION_JSON})
+    @TypeHint(Player.class)
     public List<Player> listPlayers() {
         return service.listPlayers();
     }
@@ -34,6 +36,7 @@ public class PlayerService {
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
+    @TypeHint(Player.class)
     public Player logonPlayer(@FormParam("token") String token, @HeaderParam("Origin") String origin) {
 
         return service.logonPlayer(token, origin);
@@ -80,12 +83,14 @@ public class PlayerService {
     @GET
     @Path("/mission/{playerId}")
     @Produces({MediaType.APPLICATION_JSON})
+    @TypeHint(MissionPlayer.class)
     public MissionPlayer getCurrentMission(@PathParam("playerId") String userId) {
         return service.getCurrentMission(userId);
     }
 
     @POST
     @Path("/mission/{playerId}/update")
+    @TypeHint(MissionPlayer.class)
     @Produces({MediaType.APPLICATION_JSON})
     public MissionPlayer updateCurrentMission(@PathParam("playerId")String userId){
     return null;
