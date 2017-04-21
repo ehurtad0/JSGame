@@ -1,0 +1,237 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+
+	.gamezone .gameZoneMainWrapper > .gameZoneTopWrapper {
+		position: relative;
+	}
+
+	.gamezone .CompanyScoreWidget {
+		position: relative;
+	}
+
+	.gamezone .gameZoneMainWrapper > .gameZoneTopWrapper .weeks{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		color: #FFF;
+	}
+
+	.gamezone .gameZoneMainWrapper > .gameZoneTopWrapper .weeks > strong{
+		font-size: 40pt;
+	}
+
+	.gamezone .CompanyScoreWidget > .info {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		text-align: center;
+		color: #FFF;
+
+	}
+
+	.gamezone .CompanyScoreWidget > .info > p{
+		margin-bottom: 5px;
+	}
+
+	.gamezone .CompanyScoreWidget > .info > h1{
+		margin-top: 0px;
+		font-size: 42pt;
+		line-height: 42pt;
+		font-weight: bold;
+	}
+
+
+	.gamezone .CompanyScoreWidget > img {
+		width: 100%;
+	}
+
+	.gamezone  .ComparisonWidgetsWrapper > .ComparisonWidget > h5{
+		text-align: center;
+		position: relative;
+		color: #FFF;
+	}
+
+	.gamezone  .ComparisonWidgetsWrapper > .ComparisonWidget > h5:before{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 1px;
+		background-color: #FFF;
+		width: 40%;
+	}
+
+	.gamezone  .ComparisonWidgetsWrapper > .ComparisonWidget > h5:after{
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 1px;
+		background-color: #FFF;
+		width: 40%;
+	}
+
+	.ComparisonWidget > .row > div > .BarComparison{
+		height: 50px;
+	}
+
+	.ComparisonWidget > .row > div > .BarComparison > .value{
+		margin: 5px 0px;
+		height: 40px;
+		background-color: #194166;
+	}
+
+	.ComparisonWidget > .row > div > .BarComparison > .value > img{
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+	}
+
+	.ComparisonWidget .BarComparison.left > .value{
+		border-bottom-right-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+
+	.ComparisonWidget .BarComparison.left > .value > img{
+		float: right;
+	}
+
+	.ComparisonWidget .BarComparison > .value > h2{
+		margin: 5px 20px 0px 20px;
+		color: #FFF;
+		font-weight: 400;
+	}
+
+	.ComparisonWidget .BarComparison.left > .value > h2{
+		float: left;
+	}
+
+	.ComparisonWidget .BarComparison.right > .value > h2{
+		float: right;
+	}
+
+	.ComparisonWidget .BarComparison.right > .value > img{
+		float: left;
+	}
+
+	.ComparisonWidget .BarComparison.right > .value{
+		float: right;
+		border-bottom-left-radius: 20px;
+		border-top-left-radius: 20px;
+	}
+
+	.HistoryWidget .HistoryPreview img{
+		display: block;
+		margin: 0 auto;
+		width: 60px;
+		height: 60px;
+		border-radius: 30px;
+		margin-top: 10px; 
+	}
+
+	.HistoryWidget .HistoryPreview > div:first-child{
+		padding: 0px;
+	}
+
+	.HistoryWidget .BarChartHistory .value{
+		height: 20px;
+		background-color: #194166;
+		border-radius: 10px;
+		position: relative;
+	}
+
+	.HistoryWidget .BarChartHistory .value > span{
+		position: absolute;
+		width: 2px;
+		height: 20px;
+		top: 0;
+		background-color: #FFF;
+
+	}
+
+	.HistoryWidget {
+		margin-bottom: 25px;
+		border-bottom: 1px solid #194166;
+		padding-bottom: 40px;
+	}
+
+	a.expandHistory, a.expandHistory:hover{
+		color: #808080;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.HistoriesWidgetsWrapper {
+		max-height: 250px;
+		overflow-y: scroll;
+	}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.gamezone .dashboard-home{
+		/*min-height: 100%;*/
+	}
+
+	.ComparisonWidget > .row > div > .BarComparison{
+		height: 80px;
+	}
+
+	.ComparisonWidget > .row > div > .BarComparison > .value{
+		margin: 20px 0px;
+		height: 40px;
+		background-color: #194166;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+}

@@ -17,8 +17,20 @@ module.exports = {
 
 		axios.get(api.getMisions(user.pk))
 		.then((res) => {
+			var missions = [];
+			var secondaryMissions =[];
+
+			res.data.map((val,k) => {
+				if (val.tipomision === 1) {
+					missions.push(val);
+				} else {
+					secondaryMissions.push(val);
+				}
+			});
+
 				component.setState({
-					missions : res.data
+					missions : missions,
+					secondaryMissions: secondaryMissions
 				});
 		});
 	}
