@@ -6,11 +6,10 @@ import com.joyscrum.models.Player;
 import com.joyscrum.models.ToID;
 import org.bson.types.ObjectId;
 
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.*;
-import javax.xml.ws.spi.http.HttpContext;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 
@@ -35,9 +34,9 @@ public class PlayerService {
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
-    public Player logonPlayer(@FormParam("token") String token,@HeaderParam("Origin") String origin) {
+    public Player logonPlayer(@FormParam("token") String token, @HeaderParam("Origin") String origin) {
 
-        return service.logonPlayer(token,origin);
+        return service.logonPlayer(token, origin);
     }
 
     @POST
@@ -45,22 +44,23 @@ public class PlayerService {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response setTeam(@PathParam("playerId") String userId, ToID teamId) {
-        if (service.updateTeam(new ObjectId(userId),new ObjectId(teamId.getHexString()))){
+        if (service.updateTeam(new ObjectId(userId), new ObjectId(teamId.getHexString()))) {
             return Response.ok().build();
 
-        }else{
+        } else {
             return Response.status(406).build();
         }
     }
+
     @POST
     @Path("/setRol/{playerId}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response setRol(@PathParam("playerId") String userId, ToID rolId) {
-        if (service.updateRol(new ObjectId(userId),new ObjectId(rolId.getHexString()))){
+        if (service.updateRol(new ObjectId(userId), new ObjectId(rolId.getHexString()))) {
             return Response.ok().build();
 
-        }else{
+        } else {
             return Response.status(406).build();
         }
     }
@@ -70,17 +70,24 @@ public class PlayerService {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response updatePlayerInfo(@PathParam("playerId") String userId, Player player) {
-        if (service.updatePlayer(new ObjectId(userId),player)){
+        if (service.updatePlayer(new ObjectId(userId), player)) {
             return Response.ok().build();
-        }else{
+        } else {
             return Response.status(406).build();
         }
     }
+
     @GET
     @Path("/mission/{playerId}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MissionPlayer getCurrentMission(@PathParam("playerId")String userId){
-return service.getCurrentMission(userId);
+    public MissionPlayer getCurrentMission(@PathParam("playerId") String userId) {
+        return service.getCurrentMission(userId);
     }
 
+    @POST
+    @Path("/mission/{playerId}/update")
+    @Produces({MediaType.APPLICATION_JSON})
+    public MissionPlayer updateCurrentMission(@PathParam("playerId")String userId){
+    return null;
+    }
 }

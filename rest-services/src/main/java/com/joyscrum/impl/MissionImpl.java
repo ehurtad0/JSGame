@@ -1,6 +1,7 @@
 package com.joyscrum.impl;
 
 import com.joyscrum.ConnectionDB;
+import com.joyscrum.cache.FindValue;
 import com.joyscrum.models.Mission;
 import com.joyscrum.models.MissionPlayer;
 import com.joyscrum.models.Player;
@@ -26,7 +27,7 @@ public class MissionImpl {
             throw new NotFoundException("Usuario o Rol no válido");
         }
         Datastore store = connection.getDataStore();
-        Player player = store.createQuery(Player.class).field("id").equal(userId).get();
+        Player player = FindValue.getSingle(store.createQuery(Player.class).field("id").equal(userId),userId.toHexString());
 
         if (player == null || player.getRolId() == null ||player.getRolId().length()<=9 ) {
             throw new NotFoundException("Usuario o Rol no válido");

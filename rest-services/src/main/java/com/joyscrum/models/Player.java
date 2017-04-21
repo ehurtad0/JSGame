@@ -46,7 +46,8 @@ public class Player extends ModelBase {
     private String missionActualId;
     @Transient
     private MissionPlayer misionActual;
-
+    @Transient
+    private boolean nuevoUsuario;
 
     @Override
     public ObjectId getId() {
@@ -240,5 +241,13 @@ public class Player extends ModelBase {
 
     public void setMisionActual(MissionPlayer misionActual) {
         this.misionActual = misionActual;
+    }
+
+    public boolean isNuevoUsuario() {
+        return nuevoUsuario;
+    }
+
+    public void setNuevoUsuario(boolean nuevoUsuario) {
+        this.nuevoUsuario = nuevoUsuario;
     }
 }

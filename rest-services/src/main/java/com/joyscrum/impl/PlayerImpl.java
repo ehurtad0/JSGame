@@ -9,6 +9,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.joyscrum.ConnectionDB;
 import com.joyscrum.GetSystemConfiguration;
+import com.joyscrum.cache.FindValue;
 import com.joyscrum.models.MissionPlayer;
 import com.joyscrum.models.Player;
 import com.joyscrum.models.Rol;
@@ -79,14 +80,14 @@ public class PlayerImpl {
 
     public static void setRelatedFields(Datastore store, Player... players) {
         if (_team == null) {
-            List<Team> teams = store.createQuery(Team.class).asList();
+            List<Team> teams = FindValue.getList(store.createQuery(Team.class),"teamsList");
             _team = new HashMap<>(teams.size());
             for (Team t : teams) {
                 _team.put(t.getId().toHexString(), t);
             }
         }
         if (_rol == null) {
-            List<Rol> rols = store.createQuery(Rol.class).asList();
+            List<Rol> rols = FindValue.getList(store.createQuery(Rol.class),"rolsList");
             _rol = new HashMap<>(rols.size());
             for (Rol r : rols) {
                 _rol.put(r.getId().toHexString(), r);
@@ -163,6 +164,7 @@ public class PlayerImpl {
                 .field("origin").equal("google").get();
         if (player == null) {
             player = new Player();
+            player.setNuevoUsuario(true);
             player.setEsActivo(true);
             player.setEmail((String) result.get("email"));
             player.setAvatar((String) result.get("picture"));
@@ -188,7 +190,7 @@ public class PlayerImpl {
         if (player == null) {
             return false;
         }
-        Team team = store.createQuery(Team.class).field("_id").equal(teamId).get();
+        Team team = FindValue.getSingle(store.createQuery(Team.class).field("_id").equal(teamId),teamId.toHexString());
         if (team == null) {
             return false;
         }
@@ -204,7 +206,9 @@ public class PlayerImpl {
         if (!ObjectId.isValid(rolId.toHexString()) || player == null) {
             return false;
         }
-        Rol rol = store.createQuery(Rol.class).field("_id").equal(rolId).get();
+        Rol rol = FindValue.getSingle(store.createQuery(Rol.class).field("_id").equal(rolId),rolId.toHexString());
+
+                //.get();
         if (!ObjectId.isValid(userId.toHexString()) || rol == null) {
             return false;
         }
@@ -254,14 +258,16 @@ public class PlayerImpl {
     }
 
     private MissionPlayer getCurrentMission(Player player, Datastore store) {
-        MissionPlayer missionPlayer = store.createQuery(MissionPlayer.class).field("playerId").equal(player.getId().toHexString())
-                .field("missionId").equal(player.getMissionActualId())
-                .get();
+        MissionPlayer missionPlayer =
+                FindValue.getSingle(store.createQuery(MissionPlayer.class)
+                        .field("playerId").equal(player.getId().toHexString())
+                        .field("missionId").equal(player.getMissionActualId()),player.getMissionActualId());
         return missionPlayer;
     }
 
     public static Player getPlayer(ObjectId userId, Datastore store) {
-        return store.createQuery(Player.class).field("id").equal(userId).get();
+        //return store.createQuery(Player.class).field("id").equal(userId).get();
+        return FindValue.getSingle(store.createQuery(Player.class).field("id").equal(userId),userId.toHexString());
 
     }
 

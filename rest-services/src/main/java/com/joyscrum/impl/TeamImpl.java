@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by Jorge Mota
@@ -25,7 +26,14 @@ public class TeamImpl {
         return store.createQuery(Team.class).asList();
     }
 
-    public Team update(Team team,String id) {
+    public List<Team> list(String name) {
+        Datastore store = connection.getDataStore();
+        Pattern pat = Pattern.compile(String.format(".*%s.*", name), Pattern.CASE_INSENSITIVE);
+        //return store.createQuery(Team.class).field("name").startsWithIgnoreCase(name).asList();
+        return store.createQuery(Team.class).filter("nombreEquipo", pat).asList();
+    }
+
+    public Team update(Team team, String id) {
         Datastore store = connection.getDataStore();
         Team result = null;
         if (!id.equals("-1")) {
