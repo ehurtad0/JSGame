@@ -1,10 +1,10 @@
-<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.0.0-M.4.xsd">
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.0.0-M.4.xsd" >
 
   <title>JoyScrum API</title>
   <description package="com.joyscrum.models"/>
   <copyright>www.JoyScrum.com</copyright>
 
-  <application root="http://api.joyscrum.com/api"/>
+  <application root="https://api.joyscrum.com/"/>
 
   <namespaces>
 

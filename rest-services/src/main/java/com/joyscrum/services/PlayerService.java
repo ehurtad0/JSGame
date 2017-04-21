@@ -24,6 +24,12 @@ public class PlayerService {
     @Inject
     PlayerImpl service;
 
+    /**
+     * Obtiene una lista de toda la tabla jugadores
+     * Esta no existirá en producción.
+     * @return
+     */
+    @Deprecated
     @GET
     @Path("/")
     @Produces({MediaType.APPLICATION_JSON})
@@ -32,7 +38,13 @@ public class PlayerService {
         return service.listPlayers();
     }
 
-
+    /**
+     * Permite probar el login de un usuario, sin Generar el JWT token
+     *
+     * @param token
+     * @param origin
+     * @return El objeto Jugador del usuario que está iniciando sesión
+     */
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
@@ -42,6 +54,13 @@ public class PlayerService {
         return service.logonPlayer(token, origin);
     }
 
+    /**
+     *  Establece un equipo al jugador
+     *  @HTTP 406 si no es posible asignar el equipo.
+     * @param userId
+     * @param teamId
+     * @return @HTTP 200 si todo resulta bien.
+     */
     @POST
     @Path("/setTeam/{playerId}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -55,6 +74,12 @@ public class PlayerService {
         }
     }
 
+    /**
+     *
+     * @param userId
+     * @param rolId
+     * @return
+     */
     @POST
     @Path("/setRol/{playerId}")
     @Consumes({MediaType.APPLICATION_JSON})

@@ -10,6 +10,7 @@
     <url>http://localhost:9990/rest</url>
     <properties>
         <enunciate.version>2.9.1</enunciate.version>
+        <jaxws-ri-rt.version>2.2.10</jaxws-ri-rt.version>
         <cargo.servlet.port>9001</cargo.servlet.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- JBoss dependency versions -->
@@ -101,17 +102,25 @@
             <groupId>com.webcohesion.enunciate</groupId>
             <artifactId>enunciate-core-annotations</artifactId>
             <version>${enunciate.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.webcohesion.enunciate</groupId>
             <artifactId>enunciate-rt-util</artifactId>
             <version>${enunciate.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.3.3</version>
+            <version>2.8.4</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>${jaxws-ri-rt.version}</version>
         </dependency>
     </dependencies>
 
@@ -164,6 +173,26 @@
                     <enunciateArtifactId/>
                 </configuration>
             </plugin>
+            <!--plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <copy todir="target/rest-services/docs">
+                                    <fileset dir="target/enunciate/build/docs">
+                                    </fileset>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin-->
+
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>

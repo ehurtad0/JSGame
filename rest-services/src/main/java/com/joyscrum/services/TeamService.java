@@ -39,10 +39,10 @@ public class TeamService {
     }
 
     @GET
-    @Path("/find/{name}")
+    @Path("/find/{filter}")
     @Produces({MediaType.APPLICATION_JSON})
     @TypeHint(Team.class)
-    public List<Team> findTeams(@PathParam("name") String teamName) {
+    public List<Team> findTeams(@PathParam("filter") String teamName) {
         return service.list(teamName);
     }
 }

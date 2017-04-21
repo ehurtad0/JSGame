@@ -28,7 +28,6 @@ public class MissionService {
      *  Obtiene un listado de Misiones asignadas a un usuario
      * @param userId PK del Usuario
      * @return Lista de Misiones
-     * @returnWrapped com.joyscrum.models.Mission
      */
     @GET
     @Path("/{userId}")
@@ -38,6 +37,13 @@ public class MissionService {
         return service.listMissionsByRol(new ObjectId(userId));
     }
 
+    /**
+     * Asigna una misión a un usuario
+     * @HTTP 406 si no es posible asignar la misión al usuario
+     * @param userId
+     * @param missionId
+     * @return
+     */
     @PUT
     @Path("/assign/{userId}")
     @Produces({MediaType.APPLICATION_JSON})
