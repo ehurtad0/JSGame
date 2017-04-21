@@ -1,6 +1,7 @@
 package com.joyscrum.services;
 
 import com.joyscrum.impl.PlayerImpl;
+import com.joyscrum.models.MissionPlayer;
 import com.joyscrum.models.Player;
 import com.joyscrum.models.ToID;
 import org.bson.types.ObjectId;
@@ -8,8 +9,8 @@ import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
+import javax.xml.ws.spi.http.HttpContext;
 import java.util.List;
 
 
@@ -34,8 +35,9 @@ public class PlayerService {
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
-    public Player logonPlayer(@FormParam("token") String token) {
-        return service.logonPlayer(token);
+    public Player logonPlayer(@FormParam("token") String token,@HeaderParam("Origin") String origin) {
+
+        return service.logonPlayer(token,origin);
     }
 
     @POST
@@ -73,6 +75,12 @@ public class PlayerService {
         }else{
             return Response.status(406).build();
         }
+    }
+    @GET
+    @Path("/mission/{playerId}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public MissionPlayer getCurrentMission(@PathParam("playerId")String userId){
+return service.getCurrentMission(userId);
     }
 
 }

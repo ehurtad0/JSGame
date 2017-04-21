@@ -10,6 +10,7 @@ import org.mongodb.morphia.Datastore;
 
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -27,14 +28,15 @@ public class MissionImpl {
         Datastore store = connection.getDataStore();
         Player player = store.createQuery(Player.class).field("id").equal(userId).get();
 
-        if (player==null || player.getRol()==null){
+        if (player == null || player.getRolId() == null ||player.getRolId().length()<=9 ) {
             throw new NotFoundException("Usuario o Rol no válido");
         }
-        Rol rol = store.createQuery(Rol.class).filter("id",player.getRol().getId()).get();
-        System.out.println(rol.getId().toHexString());
-        List<Mission> missions = store.createQuery(Mission.class).filter("rol._id", rol.getId()).asList();
+        //Rol rol = store.createQuery(Rol.class).filter("id", player.getRol().getId()).get();
+      //  System.out.println(rol.getId().toHexString());
+        List<Mission> missions = store.createQuery(Mission.class).filter("rolId", player.getRolId()).asList();
 
-        return store.createQuery(Mission.class).filter("rol",player.getRol()).asList();//.filter("id",userId).asList();
+       // return store.createQuery(Mission.class).filter("rolId", player.getRolId()).asList();//.filter("id",userId).asList();
+        return missions;
         //.asList();
 
     }
@@ -57,14 +59,32 @@ public class MissionImpl {
         if (!ObjectId.isValid(userId.toHexString()) || player == null) {
             return null;
         }
-        MissionPlayer mission = store.createQuery(MissionPlayer.class).field("mission._id").equal(missionId).get();
-        if (!ObjectId.isValid(missionId.toHexString()) || mission == null) {
+        MissionPlayer missionPlayer = store.createQuery(MissionPlayer.class).field("mission._id").equal(missionId).get();
+        if (!ObjectId.isValid(missionId.toHexString())) {
             return null;
         }
+        if (missionPlayer == null) {
+            Mission mission = store.createQuery(Mission.class).field("_id").equal(missionId).get();
+            if (mission == null) {
+                return null;
+            }
+            missionPlayer = new MissionPlayer();
+            missionPlayer.setPlayerId(userId.toHexString());
+            missionPlayer.setProgreso(0);
+            missionPlayer.setAvance(0);
+            missionPlayer.setCompleta(false);
+            missionPlayer.setMissionId(mission.getId().toHexString());
+            missionPlayer.setInicio(Calendar.getInstance().getTime());
+            missionPlayer.setPuntos(0);
+            missionPlayer.setRiesgo(0);
+            store.save(missionPlayer);
 
-       // player.setMisionActual(mission);
+        }
+
+        // player.setMisionActual(mission);
         player.setMissionActualId(missionId.toHexString());
         store.save(player);
+        PlayerImpl.setRelatedFields(store, player);
 
         return player;
     }

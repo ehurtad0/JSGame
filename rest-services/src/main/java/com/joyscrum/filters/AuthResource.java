@@ -23,14 +23,17 @@ public class AuthResource {
 
     @POST
     @Produces({MediaType.APPLICATION_JSON})
-    public Response auth(@FormParam("token") String token) {
+    public Response auth(@FormParam("token") String token,@HeaderParam("Origin") String origin) {
       //  System.out.println("Authenticated user: " + sctx.getUserPrincipal().getName());
 
         //this.sctx = sctx;
        // String authenticatedUser = sctx.getUserPrincipal().getName();
-        Player player = service.logonPlayer(token);
+        //System.out.println(origin);
+        Player player = service.logonPlayer(token,origin);
+
         if (player ==null){
-            throw new NotAuthorizedException("Token inválido");
+            throw new ForbiddenException("Token Inválido");//NotAuthorizedException("Token inválido");
+
         }
         Response resp = Response.ok( " authenticated")
                 .header("jwt", JWTokenUtility.buildJWT(token))

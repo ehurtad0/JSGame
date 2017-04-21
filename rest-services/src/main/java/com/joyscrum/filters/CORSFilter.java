@@ -20,11 +20,21 @@ public class CORSFilter implements ContainerResponseFilter {
     public void filter(final ContainerRequestContext requestContext,
                        final ContainerResponseContext cres) throws IOException {
         if (GetSystemConfiguration.getValue().isCORSAllowed()) {
-            cres.getHeaders().add("Access-Control-Allow-Origin", "*");
-            cres.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
+            String origin = requestContext.getHeaderString("Origin");
+
+            if (origin == null) {
+                origin = requestContext.getHeaderString("origin");
+                if (origin == null) {
+                    origin = "*";
+                }
+            }
+            cres.getHeaders().add("Access-Control-Allow-Origin", origin);
+            cres.getHeaders().add("Access-Control-Allow-Headers", " origin, content-type, accept, Origin, X-Requested-With, Content-Type, Accept, Authorization");
             cres.getHeaders().add("Access-Control-Allow-Credentials", "true");
             cres.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
             cres.getHeaders().add("Access-Control-Max-Age", "1209600");
+            cres.getHeaders().add("Access-Control-Expose-Headers", "accept, Origin, X-Requested-With, Content-Type, Accept, jwt,Authorization");
+
         }
     }
 
