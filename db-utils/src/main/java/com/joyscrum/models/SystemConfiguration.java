@@ -9,7 +9,9 @@ public class SystemConfiguration {
 
     private String environment;
     private String googleClientId;
+    private String trelloClientId;
     private String redirectURI;
+
     private boolean allowPlainRequest;
     private boolean CORSAllowed;
 
@@ -27,6 +29,14 @@ public class SystemConfiguration {
 
     public String getGoogleClientId() {
         return googleClientId;
+    }
+
+    public String getTrelloClientId() {
+        return trelloClientId;
+    }
+
+    public void setTrelloClientId(String trelloClientId) {
+        this.trelloClientId = trelloClientId;
     }
 
     public void setRedirectURI(String redirectURI) {

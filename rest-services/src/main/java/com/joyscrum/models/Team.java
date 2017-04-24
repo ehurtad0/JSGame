@@ -8,8 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- * Created by Jorge Mota
- * on 3/27/17.
+ * Modelo que representa a la tabla Equipo
  */
 @Entity("Equipo")
 @XmlRootElement

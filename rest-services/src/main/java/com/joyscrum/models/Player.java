@@ -9,8 +9,7 @@ import org.mongodb.morphia.annotations.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Jorge Mota
- * on 3/24/17.
+ * Modelo para tabla Jugador
  */
 @Entity("Jugador")
 @XmlRootElement

@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
- * Created by  Jorge Mota
- * on 4/5/17.
+ *Modelo que representa las misiones asignadas a un jugador
+ * Almacena el progreso, puntos, etc.
  */
 @Entity("MisionJugador")
 @XmlRootElement

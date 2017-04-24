@@ -8,8 +8,7 @@ import org.mongodb.morphia.annotations.Property;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Jorge Mota
- * on 3/24/17.
+ * Modelo que representa la tabla Mision
  */
 @Entity("Mision")
 @XmlRootElement

@@ -7,8 +7,7 @@ import org.mongodb.morphia.annotations.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Jorge Mota
- * on 3/27/17.
+ * Modelo que representa  a la tabla ROL
  */
 @Entity("Rol")
 @XmlRootElement

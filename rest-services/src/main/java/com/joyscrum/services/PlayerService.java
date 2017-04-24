@@ -27,6 +27,7 @@ public class PlayerService {
     /**
      * Obtiene una lista de toda la tabla jugadores
      * Esta no existirá en producción.
+     *
      * @return
      */
     @Deprecated
@@ -45,21 +46,24 @@ public class PlayerService {
      * @param origin
      * @return El objeto Jugador del usuario que está iniciando sesión
      */
+    @Deprecated
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
     @TypeHint(Player.class)
     public Player logonPlayer(@FormParam("token") String token, @HeaderParam("Origin") String origin) {
 
-        return service.logonPlayer(token, origin);
+        //     return service.logonPlayer(token, origin);
+        return null;
     }
 
     /**
-     *  Establece un equipo al jugador
-     *  @HTTP 406 si no es posible asignar el equipo.
+     * Establece un equipo al jugador
+     *
      * @param userId
      * @param teamId
      * @return @HTTP 200 si todo resulta bien.
+     * @HTTP 406 si no es posible asignar el equipo.
      */
     @POST
     @Path("/setTeam/{playerId}")
@@ -75,7 +79,6 @@ public class PlayerService {
     }
 
     /**
-     *
      * @param userId
      * @param rolId
      * @return
@@ -93,6 +96,14 @@ public class PlayerService {
         }
     }
 
+    /**
+     * Realiza cambios en el perfil del usuario.
+     * Retorna @HTTP 406 si ocurre un error al modificar el perfil
+     *
+     * @param userId Id De Usuario
+     * @param player Objeto Player con los cambios a realizar
+     * @return
+     */
     @POST
     @Path("/updatePlayer/{playerId}")
     @Consumes({MediaType.APPLICATION_JSON})
@@ -105,6 +116,12 @@ public class PlayerService {
         }
     }
 
+    /**
+     * Retorna la misión activa del usuario indicado en userId
+     *
+     * @param userId
+     * @return
+     */
     @GET
     @Path("/mission/{playerId}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -113,11 +130,17 @@ public class PlayerService {
         return service.getCurrentMission(userId);
     }
 
+    /**
+     * Permite cambiar la misión actual del usuario indicado en userId
+     *
+     * @param userId
+     * @return
+     */
     @POST
     @Path("/mission/{playerId}/update")
     @TypeHint(MissionPlayer.class)
     @Produces({MediaType.APPLICATION_JSON})
-    public MissionPlayer updateCurrentMission(@PathParam("playerId")String userId){
-    return null;
+    public MissionPlayer updateCurrentMission(@PathParam("playerId") String userId) {
+        return null;
     }
 }

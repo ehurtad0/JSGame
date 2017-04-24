@@ -111,7 +111,7 @@ public class PlayerImpl {
     }
 
 
-    private Payload validateToken(String token, String origin) {
+   /* private Payload validateToken(String token, String origin) {
         Payload result = null;
         try {
             String defOrigin = origin == null ? GetSystemConfiguration.getValue().getRedirectURI() : origin;
@@ -182,7 +182,7 @@ public class PlayerImpl {
         }
         setRelatedFields(store, player);
         return player;
-    }
+    }/**/
 
     public boolean updateTeam(ObjectId userId, ObjectId teamId) {
         Datastore store = connection.getDataStore();

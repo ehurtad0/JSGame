@@ -24,7 +24,7 @@ public class GetSystemConfiguration {
             conf.setEnvironment(props.getProperty("environment", "localhost"));
             conf.setGoogleClientId(props.getProperty("googleClientId", "773332083832-eh42icaooprq2ojlr5jeupf8lkskoaub.apps.googleusercontent.com"));
             conf.setRedirectURI(props.getProperty("redirectURI", "http://localhost:8080"));
-
+            conf.setTrelloClientId(props.getProperty("trelloClientId","-----1"));
             boolean allow=false;
             String tmp =(String)props.get("plainRequest");
             if (tmp==null){

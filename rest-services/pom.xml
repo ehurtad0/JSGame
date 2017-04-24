@@ -122,8 +122,18 @@
             <artifactId>jaxws-rt</artifactId>
             <version>${jaxws-ri-rt.version}</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.julienvey.trello</groupId>
+            <artifactId>trello-java-wrapper</artifactId>
+            <version>0.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.5</version>
+        </dependency>
+    </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>

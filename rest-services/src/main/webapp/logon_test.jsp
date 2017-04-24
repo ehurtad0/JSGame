@@ -41,7 +41,7 @@
             $.ajax({
                 type: 'POST',
                // url: '/rest/api/player/validate',
-                url: 'http://api.joyscrum.com/rest/api/AUTH',
+                url: 'https://api.joyscrum.com/rest/api/AUTH',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 },
