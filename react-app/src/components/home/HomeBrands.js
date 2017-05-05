@@ -23,8 +23,8 @@ const HomeBrands = () => (
 
     <ul className="brandList">
       <li className="brand">Featured in:</li>
-      {brands.map(function(brand){
-        return <li className="brand"><img src={brand} /></li>
+      {brands.map(function(brand, index){
+        return <li className="brand" key={index}><img src={brand} /></li>
       })
       }
       <p className='clear'></p>
