@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import 'materialize-css/dist/css/materialize.css';
+import 'font-awesome/css/font-awesome.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 //import './materialize/js/jquery.min.js';
