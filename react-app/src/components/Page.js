@@ -9,8 +9,7 @@ import {
   Nav, 
   NavDropdown, 
   MenuItem, 
-  Button,
-  li
+  Button
 } from 'react-bootstrap';
 import { 
   BrowserRouter as Router, 
@@ -62,12 +61,12 @@ class Page extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                   <Nav pullRight>
-                    <li role="presentation"><Link to="#howItWorks">How it Works</Link></li>
-                    <li role="presentation"><Link to='/price' onClick={() => this.handleClick('home-page','top-price-page', false)}>Pricing</Link></li>
-                    <li role="presentation"><a href="#">About</a></li>
-                    <li role="presentation" className="loginBtnWrapper">
+                    <NavItem role="presentation"><Link to="#howItWorks">How it Works</Link></NavItem>
+                    <NavItem role="presentation"><Link to='/price' onClick={() => this.handleClick('home-page','top-price-page', false)}>Pricing</Link></NavItem>
+                    <NavItem role="presentation">About</NavItem>
+                    <NavItem role="presentation" className="loginBtnWrapper">
                       <button href="#" className="btn btn-transparent"><Link to='/user/login'>Login</Link></button>
-                    </li>
+                    </NavItem>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>

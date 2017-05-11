@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import img1 from '../../img/pc1.jpg';
 import img2 from '../../img/pc2.jpg';
 import img3 from '../../img/pc3.jpg';
-var Slider = require('react-slick');
+// var Slider = require('react-slick');
+import { Slider } from 'react-slick';
+
 class SlideShowHome extends Component {
   render() {
-    var settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,

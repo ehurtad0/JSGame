@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../bootstrap/css/dashboard.css';
+// import '../bootstrap/css/dashboard.css';
 import '../dashboard.css';
 import '../css/mision.css';
 import '../css/gamezone.css';

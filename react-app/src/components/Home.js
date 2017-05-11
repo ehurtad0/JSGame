@@ -17,10 +17,10 @@ class Home extends Component {
            <HomeBrands />
           }
           </div>
-          <HowItWorks/>
-          <SlideShowHome/>
-          <CreateYourTeam/>
-          <HomeFooter/>
+          <HowItWorks />
+          {/*<SlideShowHome />*/}
+          <CreateYourTeam />
+          <HomeFooter />
       </div>
     );
   }
