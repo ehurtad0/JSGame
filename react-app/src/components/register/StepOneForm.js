@@ -30,8 +30,6 @@ class StepOneForm extends Component {
     }));
   }
   render() {
-    const isVisible = this.state.isVisible;
-    
     return (
       <div>
         
@@ -68,7 +66,6 @@ class StepOneForm extends Component {
             offline={false}
             className="btn waves-effect waves-light btn-radius-no capitalize sing-up-btn btn-google"
             scope={'profile'}
-            offline={true}
           >
             <i className="fa fa-google"></i> Google
           </GoogleLogin>

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import mainImg from '../../img/mainImgTransparent.png';
 var jQuery = require('jquery');
 const MainImage = () => (
   <div className="container">
-  	<div className='row mainImage'>
+    <div className='row mainImage'>
       <div className="col-xs-12 col-sm-8 mainImageWrapper">
-        <img src={mainImg} className="img-responsive" />
+        <img src={mainImg} alt={''} className="img-responsive" />
       </div>
       <div className="col-xs-12 col-sm-4 mainFormWrapper">
       <div>
@@ -47,7 +47,7 @@ const MainImage = () => (
   function fixHeight(div1, div2){
       var h1 = div1.height();
       var h2 = div2.height();
-      if(parseInt(w) >= 768){
+      if(parseInt(w, 10) >= 768){
         if(h1 >= h2 ){
           div2.height(h1);
         } else {

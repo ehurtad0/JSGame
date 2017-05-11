@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import HomeNav from './home/HomeNav';
-import MainImage from './home/MainImage';
 import HowItWorks from './home/HowItWorks';
 import SlideShowHome from './home/SlideShowHome';
 import CreateYourTeam from './home/CreateYourTeam';

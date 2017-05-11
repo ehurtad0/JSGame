@@ -24,7 +24,7 @@ class SlideShowHome extends Component {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie vestibulum dolor, ac sollicitudin est vehicula non. Duis sed enim eget lectus blandit malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus</p>
             </div>
             <div className="col-xs-12 col-sm-5 homeSliderImageWrapper">
-                <img src={img1} className="img-responsive " />
+                <img src={img1} className="img-responsive " alt='' />
             </div>
           </div>
           <div className="container homeSliderItem">
@@ -33,7 +33,7 @@ class SlideShowHome extends Component {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie vestibulum dolor, ac sollicitudin est vehicula non. Duis sed enim eget lectus blandit malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus</p>
             </div>
             <div className="col-xs-12 col-sm-5 homeSliderImageWrapper">
-                <img src={img2} className="img-responsive " />
+                <img src={img2} className="img-responsive " alt='' />
             </div>
           </div>
           <div className="container homeSliderItem">
@@ -42,7 +42,7 @@ class SlideShowHome extends Component {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie vestibulum dolor, ac sollicitudin est vehicula non. Duis sed enim eget lectus blandit malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus</p>
             </div>
             <div className="col-xs-12 col-sm-5 homeSliderImageWrapper">
-                <img src={img3} className="img-responsive " />
+                <img src={img3} className="img-responsive " alt='' />
             </div>
           </div>
         </Slider>

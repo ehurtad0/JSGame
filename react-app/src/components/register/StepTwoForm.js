@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Row , Col, Pagination} from 'react-materialize';
+import { Row , Col, Pagination} from 'react-materialize';
 import 'jquery';
 import '../../index.css';
 

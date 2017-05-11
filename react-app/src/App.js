@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home';
 import Page from './components/Page';
 import Dashboard from './components/Dashboard';
 import Register from './components/Register';
 import User from './components/User';
-import { BrowserRouter as Router, Route, Match, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const history = createBrowserHistory()
@@ -14,7 +12,7 @@ const history = createBrowserHistory()
 class App extends Component {
   render() {
     return (
-      <Router history = {history} >
+      <Router history={history} >
       <div className="mainContainer">
         <Route exact path="/" component={Page}/>
         <Route path="/price" component={Page}/>

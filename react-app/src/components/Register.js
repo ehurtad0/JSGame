@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import logo from '../img/logoRocket.png';
 import StepOneForm from './register/StepOneForm';
 import StepTwoForm from './register/StepTwoForm';
@@ -6,8 +8,7 @@ import StepThreeForm from './register/StepThreeForm';
 import StepFourForm from './register/StepFourForm';
 import StepFourInvitationsForm from './register/StepFourFormInvitations';
 import StepFiveForm from './register/StepFiveForm';
-import { BrowserRouter as Router, Route, Match } from 'react-router-dom';
-// import '../materialize/css/register.css';
+
 const Register = ({ match }) => (
   <Router>
   <div className="register newBackground">

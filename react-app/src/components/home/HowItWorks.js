@@ -69,7 +69,7 @@ class OddElement extends Component{
               <p>{this.props.description}</p>
             </div>
             <div className="col-xs-12 col-sm-6 pull-right odd">
-              <img src={this.props.img} className="img-responsive"/> 
+              <img src={this.props.img} className="img-responsive" alt=''/> 
             </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ class EvenElement extends Component{
               <p>{this.props.description}</p>
             </div>
             <div className="col-xs-12 col-sm-6 even">
-              <img src={this.props.img} className="img-responsive" /> 
+              <img src={this.props.img} className="img-responsive" alt='' /> 
             </div>
         </div>
       </div>

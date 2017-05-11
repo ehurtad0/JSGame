@@ -1,37 +1,35 @@
-import axios from 'axios'
+import axios from 'axios';
+import api from '../JoyScrumApi';
 import setAutorizationToken from './setAutorizationToken';
-const api = require('../JoyScrumApi');
 
-module.exports = {
-	
+export default {
+  getUserMisions: function (component) {
+    const token = localStorage.getItem('jwtToken');
+    if (token === null) {
+      return false;
+    }
 
-	getUserMisions : function(component){
-		var token = localStorage.getItem('jwtToken');
-		if (token === null) {
-			return false;
-		}
+    const user = JSON.parse(localStorage.getItem('profileData'));
 
-		var user = JSON.parse(localStorage.getItem('profileData'));
+    setAutorizationToken(token);
 
-		setAutorizationToken(token);
+    axios.get(api.getMisions(user.pk))
+      .then((res) => {
+        const missions = [];
+        const secondaryMissions = [];
 
-		axios.get(api.getMisions(user.pk))
-		.then((res) => {
-			var missions = [];
-			var secondaryMissions =[];
+        res.data.forEach((val, k) => {
+          if (val.tipomision === 1) {
+            missions.push(val);
+          } else {
+            secondaryMissions.push(val);
+          }
+        });
 
-			res.data.map((val,k) => {
-				if (val.tipomision === 1) {
-					missions.push(val);
-				} else {
-					secondaryMissions.push(val);
-				}
-			});
-
-				component.setState({
-					missions : missions,
-					secondaryMissions: secondaryMissions
-				});
-		});
-	}
+        component.setState({
+          missions: missions,
+          secondaryMissions: secondaryMissions
+        });
+      });
+  }
 }

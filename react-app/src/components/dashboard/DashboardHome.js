@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import HorizontalBar from './HorizontalBar.js'
 var LineChart = require("react-chartjs-v2").Line;
 var DoughnutChart = require("react-chartjs-v2").Doughnut;

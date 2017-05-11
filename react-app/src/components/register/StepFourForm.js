@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
-import '../../index.css';
 import { Button, Input, Row , Col, Pagination, Modal} from 'react-materialize';
+
+import '../../index.css';
+
 class StepFourForm extends Component {
   render() {
     return (
@@ -11,10 +12,10 @@ class StepFourForm extends Component {
           <Col s={12}>
             <h4>What's your company called?</h4>
           </Col>
-        	<Input type="text" label="Company name here" s={12} />
+          <Input type="text" label="Company name here" s={12} />
         </Row>
         <Row className="center-align">
-        	<Modal
+          <Modal
             header='Review Terms'
             trigger={
               <Button waves='light' className="bluecustom btn-radius">Continue > </Button>
@@ -24,7 +25,7 @@ class StepFourForm extends Component {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 
           </Modal>
-       	</Row>
+         </Row>
         </form>
         <Row className="paginatorWrapper">
         <Pagination items={5} activePage={4} maxButtons={5}/>

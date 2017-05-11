@@ -1,29 +1,29 @@
 import axios from 'axios'
-const api = require('../JoyScrumApi');
+import api from '../JoyScrumApi';
 
-module.exports = {
-	
+export default {
 
-	loginThroughGoogleToken : function(token, history){
 
-		var params = new URLSearchParams();
+  loginThroughGoogleToken: function (token, history) {
 
-		params.append('token', token);
+    const params = new URLSearchParams();
 
-		axios.post(api.loginGoogle(), params,
-		{
-			 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-            }
-		})
-		.then((res) => {
-			var jwt = res.request.getResponseHeader('jwt');
-			var profileData = JSON.stringify(res.data);
-			localStorage.setItem('jwtToken', jwt);
-			localStorage.setItem('profileData', profileData);
-			if(jwt !== null){
-				history.push('/dashboard/home');
-			}	
-		});
-	}
+    params.append('token', token);
+
+    axios.post(api.loginGoogle(), params,
+      {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then((res) => {
+        const jwt = res.request.getResponseHeader('jwt');
+        const profileData = JSON.stringify(res.data);
+        localStorage.setItem('jwtToken', jwt);
+        localStorage.setItem('profileData', profileData);
+        if (jwt !== null) {
+          history.push('/dashboard/home');
+        }
+      });
+  }
 }
