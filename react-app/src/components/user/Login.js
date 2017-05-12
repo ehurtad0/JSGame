@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Input, Row, Col } from 'react-materialize';
+import GoogleLogin from 'react-google-login';
 import 'jquery';
 
 import '../../index.css';
 import logo from '../../img/logoRocket.png';
-import GoogleLogin from 'react-google-login';
 import loginhelper from '../../helpers/loginhelper';
 import appParameters from '../../AppParameters';
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import '../bootstrap/css/dashboard.css';
-import '../dashboard.css';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
+import '../css/dashboard.css';
 import '../css/mision.css';
 import '../css/gamezone.css';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import DashboardNav from './dashboard/DashboardNav';
 import DashboardHome from './dashboard/DashboardHome';
 import InviteMembers from './dashboard/InviteMembers';

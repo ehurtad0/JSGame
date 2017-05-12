@@ -1,0 +1,829 @@
+/*==========  Mobile First Method  ==========*/
+
+.home-page {
+  color: #808080;
+}
+
+.home-page p {
+  font-size: 1.6rem;
+}
+
+
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+  .home-page .homeLogo > img {
+    width: 150px;
+    height: auto;
+  }
+
+  .home-page .navbar-header > a{
+    padding: 5px;
+  }
+
+  .home-page .btn-blue {
+    height: 42px;
+    border-radius: 21px !important;
+    color: #FFF !important;
+    background-color: #2491ec;
+    transition: background-color 0.4s ease;
+  }
+
+  .home-page .btn-blue:hover{
+    background-color: #1D7EE0;
+  }
+
+  .home-page .btn-custom{
+    height: 42px;
+    border-radius: 21px !important;
+  }
+
+  .home-page .btn-full{
+    width: 100%;
+  }
+
+  .home-page .howItWorksTitle{
+    font-weight: bold;
+  }
+
+  .home-page .featuresWrapper.promote{
+    position: relative;
+  }
+
+  .home-page .featuresWrapper.promote:before{
+    content: "";
+    width: 22px;
+    height: 35px;
+    position: absolute;
+    background-image: url('../img/promote.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center top;
+      right: 5%;
+      top: -1px;
+  }
+
+  .home-page .nav.navbar-nav.navbar-right > li{
+    text-align: center;
+  }
+
+  .btn-transparent{
+    transition: all 0.4s ease;
+    background-color: transparent;
+    color: #2491ec !important;
+    border-color: #2491ec !important;
+    border-radius: 20px !important;
+    min-width: 125px;
+    height: 40px;
+  }
+
+  .btn-transparent > a{
+    color: #2491ec !important;
+    text-decoration: none;
+  }
+
+  .btn-transparent:hover > a,
+  .btn-transparent:hover > a:hover{
+    color: #FFF !important;
+    text-decoration: none;
+  }
+
+  .btn-transparent:hover{
+    background-color: #2491ec !important;
+    color: #FFF !important;
+    border-color: #FFF !important;
+  }
+
+  .home-page .discountList{
+    font-size: 8pt;
+    display: block;
+  }
+
+  .home-page .discountList > a{
+    color: #b4b4b4;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #b4b4b4;
+  }
+
+  .home-page .discountList > a:first-child{
+    border-left: none;
+    padding-left: 0px;
+  }
+
+  .home-page .discountList > a:hover{
+    text-decoration: none;
+  }
+
+  .home-page .discountList > a.active{
+    color: #0093f1;
+  }
+
+  .home-page .usersNav{
+    padding-top: 5px;
+  }
+
+  .home-page .usersNav span{
+    display: block;
+  }
+
+  .home-page .usersNav > ul > li{
+    width: 20%;
+    margin: 0px !important;
+    padding: 0px;
+    border: none;
+
+  }
+
+  .home-page .usersNav > ul > li > a{
+    text-align: center;
+    border-radius: 0px !important;
+      font-size: 14pt;
+      line-height: 12pt;
+      border: 1px solid #E6E6E6;
+      color: #E6E6E6;
+  }
+
+  .home-page .usersNav > ul > li.active > a{
+    background-color: #0093f1 !important;
+    position: relative;
+    border: none;
+  }
+
+  .home-page .usersNav > ul > li.active > a::after{
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #0093f1;
+      transform: translateX(-50%);
+      clear: both;
+  }
+
+  .home-page .plansInfo{
+    padding-top: 20px;
+  }
+
+  .home-page .featuresWrapper{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .featuresWrapper > .imgHolder{
+    padding-top: 10px; 
+  }
+
+  .featuresWrapper > .imgHolder p{
+    font-size: 16pt;
+    text-align: center;
+  }
+
+  .home-page .featuresWrapper.advanced > .imgHolder p,
+  .home-page .featuresWrapper.advanced h1{
+    color: #0093f1 !important;
+  }
+  .home-page .featuresWrapper.plus > .imgHolder p,
+  .home-page .featuresWrapper.plus h1{
+    color: #ff8100 !important;
+  }
+  .home-page .featuresWrapper.premium > .imgHolder p,
+  .home-page .featuresWrapper.premium  h1{
+    color: #00a806 !important;
+  }
+  .home-page .featuresWrapper.basic > .imgHolder p,
+  .home-page .featuresWrapper.basic h1{
+    color: #ffc600 !important;
+  }
+
+  .home-page .featuresWrapper.advanced > .imgHolder.mobile{
+    border: 1px solid #0093f1 !important;
+  }
+  .home-page .featuresWrapper.plus > .imgHolder.mobile{
+    border: 1px solid #ff8100 !important;
+  }
+  .home-page .featuresWrapper.premium > .imgHolder.mobile{
+    border: 1px solid #00a806 !important;
+  } 
+  .home-page .featuresWrapper.basic > .imgHolder.mobile{
+    border: 1px solid #ffc600 !important;
+  }
+
+  .home-page .featuresWrapper .imgHolder.mobile  .imgPlansWrapper > img{
+    /*min-width: 35px;
+    min-height: 35px;*/
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  .home-page .featuresWrapper.premium .imgHolder.mobile  .imgPlansWrapper > img{
+    /*min-width: 35px;
+    min-height: 35px;*/
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  .featureItem{
+    height: 35px;
+  }
+
+  .featureItem.btnMobileWrapper{
+    height: 70px;
+  }
+
+  .featureItem.btnMobileWrapper > p > button{
+    width: 125px;
+  }
+
+  .home-page .featuresWrapper h1{
+    text-align: center;
+  }
+
+  .home-page .featuresWrapper h1 > span{
+    font-size: 14pt;
+  }
+
+  .imgHolder.mobile > .row{
+    margin: 0px !important;
+  }
+
+  .imgHolder.mobile > .row > div:first-child{
+    padding-right: 0px;
+    padding-left: 15px;
+  }
+
+  .btn.basic{
+    transition: all 0.5s ease;
+    background-color: transparent;
+    color: #ffc600 !important;
+    border-color: #ffc600 !important;
+    border-width: 2px !important;
+  }
+
+  .btn.basic:hover{
+    background-color: #ffc600;
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+
+  .btn.plus{
+    transition: all 0.5s ease;
+    background-color: transparent;
+    color: #ff8100 !important;
+    border-color: #ff8100 !important;
+    border-width: 2px !important;
+  }
+
+  .btn.plus:hover{
+    background-color: #ff8100;
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+
+  .btn.premium{
+    transition: all 0.5s ease;
+    background-color: transparent;
+    color: #00a806 !important;
+    border-color: #00a806 !important;
+    border-width: 2px !important;
+  }
+
+  .btn.premium:hover{
+    background-color: #00a806;
+    color: #FFF !important;
+    border-color: #FFF !important;
+  }
+
+  .btn.advanced{
+    transition: all 0.5s ease;
+    background-color: transparent;
+    color: #0093f1 !important;
+    border-color: #0093f1 !important;
+    border-width: 2px !important;
+  }
+
+  .btn.advanced:hover{
+    background-color: #0093f1;
+    color: #FFF !important;
+    border-color: #FFF !important;
+  }
+
+  .imgHolder.mobile{
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .home-page .brandsContainer{
+    height: 64px;
+    background-color: #f7f8f9;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    margin-top: 60px;
+  }
+
+  .home-page .footer > div > p > img {
+    width: 100%;
+  }
+
+  .home-page .footerSubLinks > ul{
+    list-style: none;
+    width: auto;
+    padding: 0px;
+
+  }
+
+  .home-page .footerSubLinks > ul > li{
+    /*float: left;*/
+    display: inline;
+    padding: 0 15px 15px 0;
+    
+  }
+
+  .home-page .footerSubLinks > ul > li > a{
+    border-left: 1px solid #b4b4b4;
+    padding-left: 15px;
+  }
+
+  .home-page .footerSubLinks > ul > li:first-child > a{
+    border-left: none;
+  }
+
+  .home-page .footerSubLinks > ul > li > a{
+    color: #b4b4b4 !important;
+  }
+
+  .home-page .CreateYourTeamWrapper{
+    padding-top: 20px;
+    background-image: url('../img/background1.png');
+  }
+  
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  .home-page .navbar-header > a{
+    /*width: 80%;*/
+  }
+
+  .home-page .discountList{
+    font-size: 10pt;
+    display: block;	
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .home-page .navbar-header > a{
+    /*width: auto;*/
+  }
+
+  .home-page .nav-link {
+    font-size: 1.6rem;
+    line-height: 40px;
+    color:  #777;
+  }
+
+  .home-page .nav-link:hover {
+    color:  darkslategray;
+  }
+
+  .home-page .howElement{
+    position: relative;
+  }
+
+  .home-page .infoWapper{
+      position: absolute !important;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-top: 0px !important;
+  }
+
+  .home-page .infoWapper.even{
+    right: 0px;
+  }
+
+  .home-page .nav.navbar-nav.navbar-right > li{
+    min-width: 125px;
+  }
+
+  .loginBtnWrapper{
+    margin: 4px 5px;
+  }
+
+  .home-page .discountList{
+    font-size: 10pt;
+    display: inline;
+    
+  }
+
+  .home-page .discountList > a:first-child{
+    border-left: none;
+    padding-left: 5px;
+  }
+
+  .home-page .usersNav > ul > li > a{
+      font-size: 12pt;
+      line-height: 12pt;
+      border: none;
+  }
+
+  .home-page .usersNav > ul > li > a{
+    text-align: center;
+    border-radius: 0px !important;
+      font-size: 12pt;
+      line-height: 12pt;
+      border: none;
+  }
+
+  .home-page .usersNav span{
+    display: inline;
+  } 
+
+  .home-page .mainFormWrapper{
+    position: relative;
+  }
+
+  .home-page .mainFormWrapper > div{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    right: 0%;
+    padding: 0 20px 0 15px;
+    transform: translateY(-50%);
+  }
+
+  .home-page .footerLinkWrapper > p{
+    color: #b4b4b4 !important;
+  }
+
+  .home-page .footerLinksList > li > a{
+    color: #b4b4b4 !important;
+    text-decoration: none !important;
+  }
+
+  .home-page .footerLinksList{
+    list-style: none;
+    padding: 0px !important;
+  }
+
+  .home-page .footerLinkWrapper > p{
+    color: #b4b4b4 !important;
+  }
+
+  .home-page .footerLinksList > li > a{
+    color: #b4b4b4 !important;
+    text-decoration: none !important;
+  }
+
+  .home-page .CreateYourTeamWrapper .descriptionWrapper {
+    padding-left: 100px;
+  }
+
+  .home-page .CreateYourTeamWrapper .descriptionWrapper > h2{
+    margin-top: 0px;
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .home-page .top-home-page{
+    padding-top: 30px;
+    background-image: url('../img/backgroundmain.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center top;
+
+  }
+
+  .home-page .homeLogo{
+    padding: 0px !important;
+  }
+  .home-page .homeLogo > img {
+    width: 150px;
+    margin-top: 5px; 
+  }
+
+  .home-page .navbar-header{
+    padding: 0px;
+  }
+
+  .home-page > .navbar{
+    /*margin-top: 30px !important; */
+  }
+
+  .loginBtnWrapper{
+    margin: 4px 5px;
+  }
+
+  .loginBtnWrapper > button{
+    min-width: 125px;
+    height: 42px;
+    border-radius: 21px !important;
+  }
+
+  .home-page .btn {
+    /*border-radius: 0px !important;*/
+  }
+
+
+  .home-page .navbar.navbar-default{
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  .btn-transparent{
+    background-color: transparent;
+    color: #2491ec !important;
+    border-color: #2491ec !important;
+  }
+
+  .home-page .nav.navbar-nav.navbar-right > li{
+    min-width: 125px;
+  }
+
+  
+  .home-page .infoWapper{
+    padding-top: 60px;
+  }
+
+  .home-page .brandsContainer{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .home-page .homeSliderItem > .homeSliderInfo {
+    padding-right: 80px !important;
+    padding-top: 50px;
+  }
+
+  .home-page .homeSliderWrapper > .row{
+    margin: 0 !important;
+  }
+
+  .home-page .CreateYourTeamWrapper{
+    padding-top: 100px;
+    min-height: 320px;
+    background-image: url('../img/background1.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center top;
+      
+  }
+
+  .home-page .CreateYourTeamWrapper .descriptionWrapper {
+    padding-left: 100px;
+  }
+
+  .home-page .brandList{
+    list-style: none;
+    padding: 0 !important;
+    text-align: center;
+    max-height: 64px;
+  }
+
+  .home-page .brandList > li.brand {
+    float: left;
+    display: inline-block;
+    height: 64px;
+    max-height: 64px;
+    min-width: 10%; 
+  }
+
+  .home-page .brandList > li.brand:first-child{
+    font-size: 14pt;
+    font-weight: bold;
+    padding-top: 20px;
+    color: #E6E6E6;
+  }
+
+  .home-page .brandList > li.brand > img {
+    height: 62px;
+    max-height: 62px;
+  }
+
+  .home-page p.clear {
+    clear: both !important;
+    margin: 0 !important;
+  }
+
+  .home-page .footerLinksList{
+    list-style: none;
+    padding: 0px !important;
+  }
+
+  .home-page .footerLinkWrapper > p{
+    color: #b4b4b4 !important;
+  }
+
+  .home-page .footerLinksList > li > a{
+    color: #b4b4b4 !important;
+    text-decoration: none !important;
+  }
+
+  .home-page .footer{
+    padding-top: 54px;
+    padding-bottom: 30px;
+  }
+
+  .home-page nav a,{
+    color: #b4b4b4 !important;
+  }
+
+  .home-page .top-price-page{
+    padding-top: 30px;
+  }
+
+  /*Pricing Page*/
+
+  .home-page .discountList{
+    font-size: 10pt;
+    
+  }
+
+  .home-page .discountList > a:first-child{
+    border-left: none;
+  }
+
+  .home-page .usersNav span{
+    display: inline;
+  }
+
+  .home-page .featureTitle,
+  .home-page .featureOption{
+    font-size: 16pt;
+    height: 30px !important;
+  }
+
+  .home-page .plansInfo{
+    padding-top: 50px;
+  }
+
+  .home-page .imgPlansWrapper > img{
+    margin: auto auto;
+  }
+
+  .home-page .imgPlansWrapper{
+    min-height: 65px;
+  }
+
+  .home-page .imgHolder p,
+  .home-page .imgHolder h1{
+    margin: 0px !important;
+  }
+
+  .home-page .imgHolder{
+    min-height: 150px;
+    padding-top: 25px;
+    margin: 0px 0px 20px 0px !important;
+  }
+
+  .home-page .imgHolder h1 > span{
+    font-size: 14pt;
+  }
+
+  .home-page .advanced {
+    color: #0093f1 !important;
+  }
+  .home-page .plus {
+    color: #ff8100 !important;
+  }
+  .home-page .premium {
+    color: #00a806 !important;
+  }
+  .home-page .basic {
+    color: #ffc600 !important;
+  }
+
+  .home-page .advanced.promote{
+    border: 1px solid #0093f1 !important;
+  }
+  .home-page .plus.promote{
+    border: 1px solid #ff8100 !important;
+  }
+  .home-page .premium.promote{
+    border: 1px solid #00a806 !important;
+  } 
+  .home-page .basic.promote{
+    border: 1px solid #ffc600 !important;
+  }
+
+  /**/
+
+  .home-page .featuresWrapper{
+    padding-bottom: 10px;
+    margin-bottom:  50px;
+  }
+
+  .home-page .usersNavWrapper{
+    padding: 0px 15px !important;
+  }
+
+  .home-page .featuresWrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .home-page #howItWorks{
+    margin-top: 20px;
+  }
+
+  
+
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  #homePage{
+    text-align: center !important;
+  }
+
+  .home-page .mainFormWrapper{
+    text-align: center;
+  }
+
+  .home-page .footerSubLinks{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+  .home-page .usersNav > ul > li > a {
+    font-size: 12pt;
+  }
+}
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+.home-page .slick-next, .home-page  .slick-prev {
+      font-size: 0 !important; 
+        line-height: 0 !important; 
+     z-index: 99999;
+}
+
+.home-page .slick-prev {
+    left: 15px;
+}
+.home-page .slick-next {
+    right: 15px;
+}
+
+.home-page .slick-next:before, .home-page .slick-prev:before {
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #2491ec;
+}
+
+.home-page  .slick-dots {
+    bottom: 20px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.home-page .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+}
+
+.home-page .slick-dots li button:before {
+    font-size: 15px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: #2491ec;
+} 
+
+.home-page .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #2491ec;
+}
+

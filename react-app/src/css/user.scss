@@ -1,3 +1,4 @@
+
 .transparentcustom{
   background-color: transparent !important;
   text-transform: capitalize !important;
@@ -81,7 +82,7 @@
 }
 
 .register.user, .register.newBackground{
-  background-image: url('./img/bgRegister.png');
+  background-image: url('../img/bgRegister.png');
   background-repeat: no-repeat;
   background-size: 100% 125px;
   background-position: center top;
@@ -165,3 +166,4 @@
 @media only screen and (min-width : 1200px) {
 
 }
+

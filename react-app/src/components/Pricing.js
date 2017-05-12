@@ -153,7 +153,7 @@ class Pricing extends Component {
             {
               plans.map((el, key) => {
                 return (
-                  <div className={"col-xs-12 col-sm-2 text-center featuresWrapper " + el.containerClass + ' ' + el.promote}>
+                  <div key={key} className={"col-xs-12 col-sm-2 text-center featuresWrapper " + el.containerClass + ' ' + el.promote}>
                     <div className='imgHolder'>
                       <div>
                         <p className="imgPlansWrapper">
@@ -170,8 +170,8 @@ class Pricing extends Component {
                       </div>
                     </div>
                     {
-                      el.features.map((e) => {
-                        return <p className="featureOption">{(e) ? <img src={el.chk} alt="" /> : '--'}</p>
+                      el.features.map((e, k) => {
+                        return <p key={k} className="featureOption">{(e) ? <img src={el.chk} alt="" /> : '--'}</p>
                       })
                     }
                     <p><button className={"btn btn-custom btn-full " + el.containerClass}>Get Started</button></p>
@@ -183,7 +183,7 @@ class Pricing extends Component {
             {
               plans.map((el, key) => {
                 return (
-                  <div className={"featuresWrapper " + el.containerClass + ' ' + el.promote}>
+                  <div key={key} className={"featuresWrapper " + el.containerClass + ' ' + el.promote}>
                     <div className='imgHolder mobile' onClick={() => this.activeCollapse(el.containerClass)}>
                       <div className="row">
                         <div className="col-xs-2">
@@ -203,13 +203,13 @@ class Pricing extends Component {
                         {
                           el.features.map((e, k) => {
                             return e ? (
-                              <div className="row featureItem">
+                              <div key={k} className="row featureItem">
                                 <div className="col-xs-10">{features[k]}</div>
                                 <div className="col-xs-2"><img src={el.chk} alt="" /></div>
                               </div>
                             ) :
                               (
-                                <div></div>
+                                <div key={k}></div>
                               )
 
                           })

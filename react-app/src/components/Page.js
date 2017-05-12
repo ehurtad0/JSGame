@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-
-import MainImage from './home/MainImage';
-import Home from './Home';
-import Pricing from './Pricing';
 import {
   Navbar,
   NavItem,
@@ -15,8 +11,13 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+
+import MainImage from './home/MainImage';
+import Home from './Home';
+import Pricing from './Pricing';
 import logo from '../img/logo.png';
-import '../home.css';
+import '../css/home.css';
+
 class Page extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +54,7 @@ class Page extends Component {
             <Navbar.Header>
               <Navbar.Brand className='homeLogo'>
                 <Link to="/" onClick={() => this.handleClick('home-page', 'top-home-page', true)}>
-                  <img src={logo} alt={'logo'}/>
+                  <img src={logo} alt={'logo'} />
                 </Link>
               </Navbar.Brand>
               <Navbar.Toggle />
@@ -62,22 +63,28 @@ class Page extends Component {
               <Nav pullRight>
                 <LinkContainer to="#howItWorks">
                   <NavItem role="presentation">
-                    How it Works
-                      </NavItem>
+                    <span className="nav-link">
+                      How it Works
+                    </span>
+                  </NavItem>
                 </LinkContainer>
                 <LinkContainer to='/price' onClick={() => this.handleClick('home-page', 'top-price-page', false)}>
                   <NavItem role="presentation">
-                    Pricing
-                      </NavItem>
+                    <span className="nav-link">
+                      Pricing
+                    </span>
+                  </NavItem>
                 </LinkContainer>
                 <NavItem role="presentation">
-                  About
-                    </NavItem>
+                  <span className="nav-link">
+                    About
+                  </span>
+                </NavItem>
                 <LinkContainer to='/user/login'>
                   <NavItem role="presentation" className="loginBtnWrapper">
                     <Button className="btn btn-transparent">
                       Login
-                        </Button>
+                    </Button>
                   </NavItem>
                 </LinkContainer>
               </Nav>

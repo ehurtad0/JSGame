@@ -10,7 +10,7 @@ const MainImage = () => (
       <div className="col-xs-12 col-sm-4 mainFormWrapper">
       <div>
           <p>
-            <strong>Aprender y aplicar Scrum, ahora es divertido.</strong>
+            <strong style={{fontSize: '16px'}}>Aprender y aplicar Scrum, ahora es divertido.</strong>
           </p>
           <form>
             <div className="form-group">

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import '../user.css';
 import Profile from './user/Profile'
 import Login from './user/Login'
 import Reset from './user/Reset'
+import '../css/user.css';
 
 class User extends Component {
   constructor(props) {
