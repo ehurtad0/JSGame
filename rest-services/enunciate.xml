@@ -4,11 +4,11 @@
   <description package="com.joyscrum.models"/>
   <copyright>www.JoyScrum.com</copyright>
 
-  <application root="https://api.joyscrum.com/"/>
+  <application root="https://api.joyscrum.com/rest/api"/>
 
   <namespaces>
 
-    <namespace id="models" uri="http://api.joyscrum.com/models"/>
+    <namespace id="models" uri="https://api.joyscrum.com/models"/>
   </namespaces>
 
   <modules>

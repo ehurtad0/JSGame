@@ -15,9 +15,14 @@
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.thoughtworks.proxytoys:proxytoys:1.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:2.0-PFD" level="project" />
+    <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:2.0-PFD2" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: com.hazelcast:hazelcast:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.hazelcast:hazelcast-client:3.8.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:7.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

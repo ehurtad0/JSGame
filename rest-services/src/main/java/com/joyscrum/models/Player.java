@@ -1,5 +1,6 @@
 package com.joyscrum.models;
 
+import com.joyscrum.cache.FindValue;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -251,5 +252,8 @@ public class Player extends ModelBase {
 
     public void setNuevoUsuario(boolean nuevoUsuario) {
         this.nuevoUsuario = nuevoUsuario;
+    }
+    public void sumarPuntos(double puntos){
+        this.puntos+=puntos;
     }
 }

@@ -11,9 +11,8 @@ import java.util.List;
 
 
 /**
- * Created by Jorge Mota
- * on 3/24/17.
- */
+ * Api para todo lo relacionado a equipos, creación , búsqueda, modificaciones, puntajes, etc/
+ **/
 
 @Path("/team")
 public class TeamService {

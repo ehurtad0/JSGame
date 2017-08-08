@@ -15,8 +15,7 @@ import java.util.List;
 
 
 /**
- * Created by Jorge Mota
- * on 3/24/17.
+ * Api para todo lo relacionado al jugador, perfil, asignar rol, equipo, etc.
  */
 
 @Path("/player")
@@ -25,28 +24,25 @@ public class PlayerService {
     PlayerImpl service;
 
     /**
-     * Obtiene una lista de toda la tabla jugadores
-     * Esta no existirá en producción.
+     * Retorna el perfil del jugador actualizado
      *
      * @return
      */
-    @Deprecated
     @GET
-    @Path("/")
+    @Path("/profile/{userId}")
     @Produces({MediaType.APPLICATION_JSON})
     @TypeHint(Player.class)
-    public List<Player> listPlayers() {
-        return service.listPlayers();
+    public Player getProfile(@PathParam("userId")String userId) {
+        return service.getProfile(userId);
     }
 
     /**
      * Permite probar el login de un usuario, sin Generar el JWT token
-     *
+     *ajajpor qu
      * @param token
      * @param origin
      * @return El objeto Jugador del usuario que está iniciando sesión
      */
-    @Deprecated
     @POST
     @Path("/validate")
     @Produces({MediaType.APPLICATION_JSON})
@@ -117,7 +113,8 @@ public class PlayerService {
     }
 
     /**
-     * Retorna la misión activa del usuario indicado en userId
+     * Retorna la  jerarquía de la misión activa del usuario indicado en userId
+     * Retorna Primaria/Secundaria/etc
      *
      * @param userId
      * @return
@@ -126,8 +123,14 @@ public class PlayerService {
     @Path("/mission/{playerId}")
     @Produces({MediaType.APPLICATION_JSON})
     @TypeHint(MissionPlayer.class)
-    public MissionPlayer getCurrentMission(@PathParam("playerId") String userId) {
-        return service.getCurrentMission(userId);
+    public List<MissionPlayer> getCurrentMission(@PathParam("playerId") String userId) {
+        List<MissionPlayer> currentMission = service.getCurrentMission(userId);
+        if (currentMission==null){
+            return null;//Response.status(406).build();
+        }
+        else{
+            return currentMission;
+        }
     }
 
     /**
@@ -137,10 +140,10 @@ public class PlayerService {
      * @return
      */
     @POST
-    @Path("/mission/{playerId}/update")
+    @Path("/setMission/{playerId}")
     @TypeHint(MissionPlayer.class)
     @Produces({MediaType.APPLICATION_JSON})
-    public MissionPlayer updateCurrentMission(@PathParam("playerId") String userId) {
-        return null;
+    public MissionPlayer updateCurrentMission(@PathParam("playerId") String userId,ToID missionId) {
+        return service.updateCurrentMission(userId,missionId.getHexString());
     }
 }

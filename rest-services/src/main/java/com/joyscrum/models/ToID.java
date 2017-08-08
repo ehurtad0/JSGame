@@ -1,8 +1,7 @@
 package com.joyscrum.models;
 
 /**
- * Created by Jorge Mota
- * on 3/27/17.
+ * Modelo temporal para pasar un identificador de entidad.
  */
 
 public class ToID {

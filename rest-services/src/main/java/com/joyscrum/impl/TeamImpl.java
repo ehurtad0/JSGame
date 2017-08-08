@@ -37,10 +37,10 @@ public class TeamImpl {
         Datastore store = connection.getDataStore();
         Team result = null;
         if (!id.equals("-1")) {
-            Team onStore = store.createQuery(Team.class).field("id").equal(id).get();
-            if (onStore != null) {
-                result = onStore;
-                result.setGuid(team.getGuid());
+           result = store.createQuery(Team.class).field("id").equal(id).get();
+            if (result != null) {
+              //  result = onStore;
+               // result.setGuid(team.getGuid());
                 result.setIndex(team.getIndex());
                 result.setLogoEquipo(team.getLogoEquipo());
                 result.setNombreEquipo(team.getNombreEquipo());

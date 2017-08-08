@@ -7,8 +7,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Jorge Mota
- * on 3/16/17.
+ Modelo para representar un usuario en la app.
  */
 @Entity
 @XmlRootElement

@@ -1,12 +1,5 @@
 package com.joyscrum.impl;
 
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
-import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.jackson2.JacksonFactory;
 import com.joyscrum.ConnectionDB;
 import com.joyscrum.GetSystemConfiguration;
 import com.joyscrum.cache.FindValue;
@@ -16,13 +9,11 @@ import com.joyscrum.models.Rol;
 import com.joyscrum.models.Team;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.query.Criteria;
+import org.mongodb.morphia.query.Query;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.ForbiddenException;
-import javax.ws.rs.NotAllowedException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -46,23 +37,7 @@ public class PlayerImpl {
         List<Player> players = store.createQuery(Player.class).asList();
         List<MissionPlayer> missions = null;
         List<Team> teams = store.createQuery(Team.class).asList();
-        //HashMap<String,MissionPlayer> _mission= new HashMap<>(missions.size());
-        //  HashMap<String, Team> _team = new HashMap<>(teams.size());
-
-        //       for (Team t : teams) {
-//            _team.put(t.getId().toHexString(), t);
-        //      }
-        //for(Mission m :  missions){
-        //    _mission.put(m.getId().toHexString(),m);
-        //}
-        //for (Player p : players) {
-        //         if (_team.containsKey(p.getEquipoId())) {
-        //           p.setEquipo(_team.get(p.getEquipoId()));
-        //      }
-
         setRelatedFields(store, players.toArray(new Player[]{}));
-        //store.createQuery(MissionPlayer.class).field("jugador_id").equal(p.getId().toHexString()).asList();
-        //}
         return players;
     }
 
@@ -80,20 +55,21 @@ public class PlayerImpl {
 
     public static void setRelatedFields(Datastore store, Player... players) {
         if (_team == null) {
-            List<Team> teams = FindValue.getList(store.createQuery(Team.class),"teamsList");
+            List<Team> teams = FindValue.getList(store.createQuery(Team.class), "teamsList");
             _team = new HashMap<>(teams.size());
             for (Team t : teams) {
                 _team.put(t.getId().toHexString(), t);
             }
         }
         if (_rol == null) {
-            List<Rol> rols = FindValue.getList(store.createQuery(Rol.class),"rolsList");
+            List<Rol> rols = FindValue.getList(store.createQuery(Rol.class), "rolesList");
             _rol = new HashMap<>(rols.size());
             for (Rol r : rols) {
                 _rol.put(r.getId().toHexString(), r);
             }
         }
         MissionPlayer misionPlayer = null;
+        String[] missionList;
         for (Player p : players) {
             if (_team.containsKey(p.getEquipoId())) {
                 p.setEquipo(_team.get(p.getEquipoId()));
@@ -101,88 +77,23 @@ public class PlayerImpl {
             if (_rol.containsKey(p.getRolId())) {
                 p.setRol(_rol.get(p.getRolId()));
             }
-            misionPlayer = store.createQuery(MissionPlayer.class).field("playerId").equal(p.getId().toHexString())
+           /* misionPlayer = store.createQuery(MissionPlayer.class).field("playerId").equal(p.getId().toHexString())
                     .field("missionId").equal(p.getMissionActualId())
                     .get();
             if (misionPlayer != null) {
                 p.setMisionActual(misionPlayer);
+            }*/
+            if (p.getMissionActualId() != null) {
+                missionList = p.getMissionActualId().split(",");
+                misionPlayer = store.createQuery(MissionPlayer.class).field("missionId").equal(missionList[0]).field("playerId").equal(p.getPk()).get();
+                if (misionPlayer != null) {
+                    misionPlayer.setRiesgoMision(100 - misionPlayer.getProgreso());
+                    p.setMisionActual(misionPlayer);
+                }
             }
         }
+
     }
-
-
-   /* private Payload validateToken(String token, String origin) {
-        Payload result = null;
-        try {
-            String defOrigin = origin == null ? GetSystemConfiguration.getValue().getRedirectURI() : origin;
-            FileReader fileJson = new FileReader("/opt/data/joyscrum/client_secret_localhost.json");
-            GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
-                    JacksonFactory.getDefaultInstance(), fileJson);
-            GoogleTokenResponse tokenResponse = null;
-            tokenResponse = new GoogleAuthorizationCodeTokenRequest(
-                    new NetHttpTransport(),
-                    JacksonFactory.getDefaultInstance(),
-                    "https://www.googleapis.com/oauth2/v4/token",
-                    clientSecrets.getDetails().getClientId(),
-                    clientSecrets.getDetails().getClientSecret(),
-                    token, defOrigin
-
-            ).execute();
-
-            GoogleIdToken idToken = tokenResponse.parseIdToken();
-            result = idToken.getPayload();
-            if (result == null) {
-                System.out.println("Error: " + origin);
-            }
-
-            // if (!result.getAudience().equals(CLIENT_ID)) {
-            //     throw new NotAuthorizedException("Acceso inválido "+ result.getAudience() );
-            // }
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            System.out.println("no access ioException");
-            e.printStackTrace();
-            result = null;
-
-        } catch (Exception e) {
-            result = null;
-            e.printStackTrace();
-            System.out.println("no access Exception");
-        }
-        return result;
-    }
-
-    public Player logonPlayer(String token, String origin) throws RuntimeException {
-        Payload result = validateToken(token, origin);
-        if (result == null) {
-            throw new ForbiddenException("Acceso inválido ");
-        }
-        Datastore store = connection.getDataStore();
-        Player player = store.createQuery(Player.class).field("profileId").equal(result.getSubject())
-                .field("email").equal((String) result.get("email"))
-                .field("origin").equal("google").get();
-        if (player == null) {
-            player = new Player();
-            player.setNuevoUsuario(true);
-            player.setEsActivo(true);
-            player.setEmail((String) result.get("email"));
-            player.setAvatar((String) result.get("picture"));
-            player.setNombre((String) result.get("name"));
-            player.setProfileId(result.getSubject());
-            player.setOrigin("google");
-            player.setPuntos(0);
-            player.setProgreso(0.00);
-            player.setRegistro(df.format(Calendar.getInstance().getTime()));
-            store.save(player);
-
-        }
-        if (!player.isEsActivo()) {
-            throw new NotAllowedException("Usuario no activo");
-        }
-        setRelatedFields(store, player);
-        return player;
-    }/**/
 
     public boolean updateTeam(ObjectId userId, ObjectId teamId) {
         Datastore store = connection.getDataStore();
@@ -190,7 +101,7 @@ public class PlayerImpl {
         if (player == null) {
             return false;
         }
-        Team team = FindValue.getSingle(store.createQuery(Team.class).field("_id").equal(teamId),teamId.toHexString());
+        Team team = FindValue.getSingle(store.createQuery(Team.class).field("_id").equal(teamId), teamId.toHexString());
         if (team == null) {
             return false;
         }
@@ -206,9 +117,9 @@ public class PlayerImpl {
         if (!ObjectId.isValid(rolId.toHexString()) || player == null) {
             return false;
         }
-        Rol rol = FindValue.getSingle(store.createQuery(Rol.class).field("_id").equal(rolId),rolId.toHexString());
+        Rol rol = FindValue.getSingle(store.createQuery(Rol.class).field("_id").equal(rolId), rolId.toHexString());
 
-                //.get();
+        //.get();
         if (!ObjectId.isValid(userId.toHexString()) || rol == null) {
             return false;
         }
@@ -247,31 +158,70 @@ public class PlayerImpl {
         if (player.getNombre() != null && player.getNombre().length() > 0) {
             storedPlayer.setNombre(player.getNombre());
         }
+        if (player.getAvatar() != null && player.getAvatar().length() > 0) {
+            storedPlayer.setAvatar(player.getAvatar());
+        }
         store.save(storedPlayer);
         return true;
     }
 
-    public MissionPlayer getCurrentMission(String userId) {
+    public List<MissionPlayer> getCurrentMission(String userId) {
         Datastore store = connection.getDataStore();
         Player player = getPlayer(userId, store);
         return getCurrentMission(player, store);
     }
 
-    private MissionPlayer getCurrentMission(Player player, Datastore store) {
-        MissionPlayer missionPlayer =
-                FindValue.getSingle(store.createQuery(MissionPlayer.class)
+    private List<MissionPlayer> getCurrentMission(Player player, Datastore store) {
+        String[] listMission =player.getMissionActualId().split(",");
+        Query<MissionPlayer> query = store.createQuery(MissionPlayer.class);
+        query.and(query.criteria("playerId").equal(player.getPk()));
+        Criteria[] listCriteria= new Criteria[listMission.length];
+          for (int i=0; i<listMission.length;i++){
+              listCriteria[i] = query.criteria("missionId").equal(listMission[i]);
+          }
+          query.and(query.or(listCriteria));
+          return query.asList();
+      /*  MissionPlayer missionPlayer =
+                FindValue.getSingle(
                         .field("playerId").equal(player.getId().toHexString())
-                        .field("missionId").equal(player.getMissionActualId()),player.getMissionActualId());
-        return missionPlayer;
+                        .field("missionId").equal(player.getMissionActualId()), player.getMissionActualId(), true);*/
+//        return missionPlayer;
     }
 
     public static Player getPlayer(ObjectId userId, Datastore store) {
         //return store.createQuery(Player.class).field("id").equal(userId).get();
-        return FindValue.getSingle(store.createQuery(Player.class).field("id").equal(userId),userId.toHexString());
+        return FindValue.getSingle(store.createQuery(Player.class).field("id").equal(userId), userId.toHexString(), true);
 
     }
 
     public static Player getPlayer(String userId, Datastore store) {
         return getPlayer(new ObjectId(userId), store);
+    }
+
+    public MissionPlayer updateCurrentMission(String userId, String missionId) {
+        Datastore store = connection.getDataStore();
+        Player player = getPlayer(userId, store);
+        MissionPlayer missionPlayer = FindValue.getSingle(store.createQuery(MissionPlayer.class).field("playerId").equal(player.getPk())
+                .field("missionId").equal(missionId), userId + missionId, true);
+        if (missionPlayer == null) {
+            missionPlayer = new MissionPlayer();
+            missionPlayer.setPuntos(0);
+            missionPlayer.setInicio(Calendar.getInstance().getTime());
+            missionPlayer.setCompleta(false);
+            missionPlayer.setMissionId(missionId);
+            missionPlayer.setProgreso(0);
+            missionPlayer.setPlayerId(userId);
+            store.save(missionPlayer);
+        }
+        player.setMissionActualId(missionId);
+        store.save(player);
+        return missionPlayer;
+    }
+
+    public Player getProfile(String userId) {
+        Datastore store = connection.getDataStore();
+        Player player = getPlayer(userId, store);
+        setRelatedFields(store, player);
+        return player;
     }
 }

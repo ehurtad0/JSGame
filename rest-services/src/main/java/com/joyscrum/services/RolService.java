@@ -12,8 +12,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Created by Jorge Mota
- * on 3/20/17.
+ * Api para la obtención de los diferentes roles.
  */
 @Path("rol")
 public class RolService {

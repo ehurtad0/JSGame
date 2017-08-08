@@ -4,13 +4,13 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Transient;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
- * Created by Jorge Mota
- * on 3/28/17.
+ * Clase abstracta base para casi todos los modelos de datos
  */
 @XmlRootElement
-public abstract class ModelBase {
+public abstract class ModelBase implements Serializable {
     abstract ObjectId getId();
 
     @Transient

@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by Jorge Mota
- * on 3/28/17.
+ *
+ * API para autenticar al usuario mediante el servicio de terceros (gmail,trello,etc)
  */
 
 @Path("AUTH")

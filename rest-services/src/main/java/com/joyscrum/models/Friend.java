@@ -4,15 +4,15 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
+import javax.management.modelmbean.ModelMBeanAttributeInfo;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by Jorge Mota
- * on 3/24/17.
+Define el modelo de datos para amigos invitados desde la app.
  */
 @Entity
 @XmlRootElement
-public class Friend {
+public class Friend  extends ModelBase {
     @Id
     private ObjectId id;
 

@@ -4,34 +4,41 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
+import org.mongodb.morphia.annotations.Transient;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
- *Modelo que representa las misiones asignadas a un jugador
+ * Modelo que representa las misiones asignadas a un jugador
  * Almacena el progreso, puntos, etc.
  */
 @Entity("MisionJugador")
 @XmlRootElement
-public class MissionPlayer {
+public class MissionPlayer extends ModelBase {
     @Id
     private ObjectId id;
 
     private String guid;
-
+    @Transient
     private Player player;
     @Property("jugador_id")
     private String playerId;
+
     private Mission mission;
     @Property("mision_id")
     private String missionId;
+    @Property("rol_id")
+    private String rolId;
+
     private double progreso;
     private double puntos;
+    @Property("misionCompleta")
     private boolean completa;
-    private double riesgo;
-    private double avance;
+    private double riesgoMision;
+    @Property("fechaIni")
     private Date inicio;
+    @Property("fechaFin")
     private Date fin;
 
 
@@ -55,11 +62,41 @@ public class MissionPlayer {
         return player;
     }
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public String getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
+    }
 
     public Mission getMission() {
         return mission;
     }
 
+    public void setMission(Mission mission) {
+        this.mission = mission;
+    }
+
+    public String getMissionId() {
+        return missionId;
+    }
+
+    public void setMissionId(String missionId) {
+        this.missionId = missionId;
+    }
+
+    public String getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(String rolId) {
+        this.rolId = rolId;
+    }
 
     public double getProgreso() {
         return progreso;
@@ -85,20 +122,12 @@ public class MissionPlayer {
         this.completa = completa;
     }
 
-    public double getRiesgo() {
-        return riesgo;
+    public double getRiesgoMision() {
+        return riesgoMision;
     }
 
-    public void setRiesgo(double riesgo) {
-        this.riesgo = riesgo;
-    }
-
-    public double getAvance() {
-        return avance;
-    }
-
-    public void setAvance(double avance) {
-        this.avance = avance;
+    public void setRiesgoMision(double riesgoMision) {
+        this.riesgoMision = riesgoMision;
     }
 
     public Date getInicio() {
@@ -117,19 +146,16 @@ public class MissionPlayer {
         this.fin = fin;
     }
 
-    public String getPlayerId() {
-        return playerId;
+    public void sumarProgreso(double progress) {
+        this.progreso += progress;
+        if (this.progreso >= 99.899999) {
+            this.setCompleta(true);
+            this.progreso = 100;
+        }
     }
 
-    public void setPlayerId(String playerId) {
-        this.playerId = playerId;
-    }
+    public void sumarPuntos(double puntos) {
+        this.puntos += puntos;
 
-    public String getMissionId() {
-        return missionId;
-    }
-
-    public void setMissionId(String missionId) {
-        this.missionId = missionId;
     }
 }

@@ -1,6 +1,7 @@
 package com.joyscrum.impl;
 
 import com.joyscrum.ConnectionDB;
+import com.joyscrum.cache.FindValue;
 import com.joyscrum.models.Rol;
 import org.mongodb.morphia.Datastore;
 
@@ -19,6 +20,6 @@ public class RolImpl {
 
     public List<Rol> getList() {
         Datastore store = connection.getDataStore();
-        return store.createQuery(Rol.class).asList();
+        return FindValue.getList(store.createQuery(Rol.class),"rolesList");
     }
 }
